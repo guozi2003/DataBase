@@ -1,0 +1,2645 @@
+$ 
+$$$$$$$$$                                            PURE5_1param.TDB    
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$$ 
+$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$ Standard FUNCTIONS for each elements (in various phases):
+$************************************************************************
+$ 
+$  All FUNCTIONS are stored in the "PURE5funct_SEQ.TDB" file !!!
+$ 
+
+$
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+$ PARAMETERS for each elements (in various phases):
+$************************************************************************
+
+$========================================================================
+$ Ac
+$ -------------------------------------
+$ Introduced since version 4.1 of the PURE database:
+$     Soure of data: SGTE Substance Database (SSUB4)
+$ -------------------------------------
+$  Stable (allotropic): AC_S --> LIQUID/AC_L
+$  Metastable:          GAS_Ac
+$ ----------------------------------------------------------------------
+$
+ PARAM G(AC_S,AC) 298.15 +GHSERAC#;                      5000 N PURE4 !
+
+$           merged into LIQUID in PURE5 /PF-2010
+$PARAM G(AC_L,AC)   298.15 +GHSERAC#+12000-9.07029478*T; 5000 N PURE4 !
+ PARAM G(LIQUID,AC) 298.15 +GHSERAC#+12000-9.07029478*T; 5000 N PURE4 !
+
+ PARAM G(GAS,AC)  298.15 +GGASAC1#+RTLNP#;               6000 N PURE4 !
+$ -------------------------------------
+
+$========================================================================
+$ Ag
+$ -------------------------------------
+$  Stable (allotropic): FCC_A1 --> LIQUID
+$  Metastable:          BCC_A2, HCP_A3/HCP_ZN, BCT_A5, CUB_A13
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,AG)    298.15 
+$   +GHSERAG#+11025.076-8.89102*T-1.033905E-20*T**7; 1234.93 Y
+$   -3587.111+180.964656*T-33.472*T*LN(T); 3000 N PURE3 !
+ PARAM G(LIQUID,AG)    298.15 +GLIQAG#;  3000 N PURE3 !
+
+ PARAM G(FCC_A1,AG:VA) 298.15 +GHSERAG#; 3000 N PURE1 !
+ 
+$PARAM G(BCC_A2,AG:VA) 298.15 +GHSERAG#+3400-1.05*T; 3000 N PURE3 !
+ PARAM G(BCC_A2,AG:VA) 298.15 +GBCCAG#;  3000 N PURE3 !
+
+$PARAM G(HCP_A3,AG:VA) 298.15 +GHSERAG#+300+0.3*T;   3000 N PURE3 !
+ PARAM G(HCP_A3,AG:VA) 298.15 +GHCPAG#;  3000 N PURE3 !
+ 
+$ Added by atd 12/3/2004 for Ag-Zn system
+ PARAM G(HCP_ZN,AG:VA) 298.15 +GHSERAG#+400+0.3*T; 3000 N PURE5 !
+
+$ Introduced for version 4.1 of database:
+$     Oh, Shim, Lee and Lee
+$        J. Alloys Compounds, 1996, 238, 155-66
+$        A thermodynamic study on the Ag-Sb-Sn system.
+$ 
+ PARAM G(BCT_A5,AG)    298.15 +GHSERAG#+4184.1; 3000 N PURE5 !
+ 
+$ Revised for version 4.4 of database:
+$   Source of data: Assessment of the Ag-Al system
+$     S S Lim, P L Rossiter and J W Tibballs 
+$       CALPHAD, 1995, 19(2), 131-142.
+$       Assessment of the Al-Ag binary PHASE diagram.
+$
+$PARAM G(CUB_A13,AG:VA) 298.15 +GHSERAG#+3765.6-1.8826*T; 3000 N PURE3 !
+ PARAM G(CUB_A13,AG:VA) 298.15 +GHSERAG#+3400-1.05*T; 3000 N PURE5 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Al
+$ -------------------------------------
+$  Stable (allotropic): FCC_A1 --> LIQUID
+$  Metastable:          BCC_A2, HCP_A3/HCP_ZN, DIAMOND_A4, BCT_A5, 
+$                               CBCC_A12, CUB_A13
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,AL) 298.15 
+$   +GHSERAL#+11005.029-11.841867*T+7.9337E-20*T**7; 700.00 Y
+$   +GHSERAL#+11005.03-11.841867*T+7.9337E-20*T**7; 933.47 Y
+$   -795.996+177.430178*T-31.748192*T*LN(T);  2900 N PURE3 !
+ PARAM G(LIQUID,AL)    298.15 +GLIQAL#;  2900 N PURE3 !
+
+ PARAM G(FCC_A1,AL:VA) 298.15 +GHSERAL#; 2900 N PURE1 !
+ 
+$PARAM G(BCC_A2,AL:VA)   298.15 +GHSERAL#+10083.0-4.813*T; 2900 N PURE3 !
+ PARAM G(BCC_A2,AL:VA)   298.15 +GBCCAL#;  2900 N PURE3 !
+ 
+$PARAM G(HCP_A3,AL:VA)   298.15 +GHSERAL#+5481-1.8*T; 2900 N PURE3 !
+ PARAM G(HCP_A3,AL:VA)   298.15 +GHCPAL#;  2900 N PURE3 !
+ 
+$ Introduced for version 4.1 of database:
+ PARAM G(HCP_ZN,AL:VA)   298.15 +GHSERAL#+5481-1.8*T; 2900 N PURE5 !
+ 
+$ From COST507 database
+ PARAM G(DIAMOND_A4,AL)  298.15 +GHSERAL#+30*T;       2900 N PURE3 !
+ 
+$ From COST507 database
+ PARAM G(BCT_A5,AL)      298.15 +GHSERAL#+10083.0-4.813*T; 2900 N PURE3 !
+ 
+ PARAM G(CBCC_A12,AL:VA) 298.15 +GHSERAL#+10083.4-4.813*T; 2900 N PURE3 !
+ 
+ PARAM G(CUB_A13,AL:VA) 298.15 +GHSERAL#+10920.44-4.8116*T; 2900 N PURE3!
+$ -------------------------------------
+ 
+$========================================================================
+$ Am
+$ -------------------------------------
+$  Stable (allotropic): DHCP --> FCC_A1 --> BCC_A2 --> LIQUID
+$  Metastable:          Unknown
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,AM)    298.15 +GHSERAM#+19910.7-14.1205*T; 3000 N PURE3 !
+ PARAM G(LIQUID,AM)    298.15 +GLIQAM#;  3000 N PURE4 !
+ 
+ PARAM G(FCC_A1,AM:VA) 298.15 +GFCCAM#;  3000 N PURE4 !
+ 
+ PARAM G(BCC_A2,AM:VA) 298.15 +GBCCAM#;  3000 N PURE4 !
+ 
+ PARAM G(DHCP,AM)      298.15 +GHSERAM#; 3000 N PURE1 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Ar
+$ -------------------------------------
+$ Introduced since version 4.1 of PURE database:
+$     Soure of data: SGTE Substance Database (SSUB4)
+$ -------------------------------------
+$  Stable (allotropic): GAS_Ar
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$ 
+$ Introduced for version 4.1 of database:
+$     Soure of data: SGTE Substance Database (SSUB4)
+$ 
+ PARAM G(GAS,AR) 298.15 +GHSERAR#+RTLNP#; 40000 N PURE3 !
+$ -------------------------------------
+
+$========================================================================
+$ As
+$ -------------------------------------
+$  Stable (allotropic): RHOMBOHEDRAL_A7 --> LIQUID
+$  Metastable:          FCC_A1, BCC_A2, HCP_A3, RED_P
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,AS) 298.15 +GHSERAS#+24442.9-22.424679*T; 1200 N PURE3 !
+ PARAM G(LIQUID,AS)    298.15 +GLIQAS#; 1200 N PURE3 !
+ 
+$PARAM G(FCC_A1,AS:VA) 298.15 +GHSERAS#+24874-14.74*T; 1200 N PURE3 !
+ PARAM G(FCC_A1,AS:VA) 298.15 +GFCCAS#; 1200 N PURE3 !
+ 
+$PARAM G(BCC_A2,AS:VA) 298.15 +GHSERAS#+24874-16.1*T; 1200 N PURE3 !
+ PARAM G(BCC_A2,AS:VA) 298.15 +GBCCAS#; 1200 N PURE3 !
+ 
+$PARAM G(HCP_A3,AS:VA) 298.15 +GHSERAS#+24874-14*T; 1200 N PURE3 !
+ PARAM G(HCP_A3,AS:VA) 298.15 +GHCPAS#; 1200 N PURE3 !
+
+ PARAM G(RHOMBOHEDRAL_A7,AS) 298.15 +GHSERAS#; 1200 N PURE1 !
+ 
+$ Introduced for version 4.1 of database:
+ PARAM G(RED_P,AS)     298.15 +GHSERAS#+5782-3.85466*T; 1200 N PURE4 !
+$ -------------------------------------
+ 
+$========================================================================
+$ At
+$ -------------------------------------
+$ Introduced for version 4.1 of database:
+$     Soure of data: SGTE Substance Database (SSUB4)
+$ -------------------------------------
+$  Stable (allotropic): AT2_S --> LIQUID/AT2_L 
+$  Metastable:          GAS
+$ ----------------------------------------------------------------------
+$ 
+ PARAM G(AT2_S,AT2) 298.15 +2*GHSERAT#;             6000 N PURE4 !
+
+$           merged into LIQUID in PURE5 /PF-2010
+$PARAM G(AT2_L,AT2)  298.15 +2*GHSERAT#+20000-40*T; 6000 N PURE4 ! 
+ PARAM G(LIQUID,AT2) 298.15 +2*GHSERAT#+20000-40*T; 6000 N PURE4 ! 
+
+ PARAM G(GAS,AT)    298.15 +GGASAT1#+RTLNP#; 6000 N PURE4 !
+
+ PARAM G(GAS,AT2)   298.15 +GGASAT2#+RTLNP#; 6000 N PURE4 ! 
+$ -------------------------------------
+
+$========================================================================
+$ Au
+$ -------------------------------------
+$  Stable (allotropic): FCC_A1 --> LIQUID 
+$  Metastable:          BCC_A2, HCP_A3, DHCP 
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,AU) 298.15 +GHSERAU#+12552-9.385866*T; 3200 N PURE3 !
+ PARAM G(LIQUID,AU)    298.15 +GLIQAU#;  3200 N PURE3 !
+
+ PARAM G(FCC_A1,AU:VA) 298.15 +GHSERAU#; 3200 N PURE1 !
+ 
+$PARAM G(BCC_A2,AU:VA) 298.15 +GHSERAU#+4250-1.1*T; 3200 N PURE3 !
+ PARAM G(BCC_A2,AU:VA) 298.15 +GBCCAU#;  3200 N PURE3 !
+ 
+$PARAM G(HCP_A3,AU:VA) 298.15 +GHSERAU#+240.75+1.6*T; 3200 N PURE3 !
+ PARAM G(HCP_A3,AU:VA) 298.15 +GHCPAU#;  3200 N PURE3 !
+ 
+ PARAM G(DHCP,AU)      298.15 +GHSERAU#+5000; 3200 N PURE5 !
+$ -------------------------------------
+ 
+$========================================================================
+$ B
+$ -------------------------------------
+$  Stable (allotropic): ALPHA_RHOMBO_B --> BETA_RHOMBO_B --> LIQUID
+$  Metastable:          GRAPHITE/DIAMOND_A4
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,B)     298.15 +GLIQBB#; 6000 N PURE5 !
+
+$ From COST507 database
+$PARAM G(FCC_A1,B:VA) 298.15 +GHSERBB#+43514-12.217*T; 6000 N PURE3 !
+ PARAM G(FCC_A1,B:VA) 298.15 +GFCCBB; 6000 N PURE3 !
+
+$ Introduced for version 4.1 of database
+$   Source of data: 
+$     Hallemans, Wollants and Roos
+$       JPE 1995, 16(2), 137-149
+$       Thermodynamic assessment of the Fe-Nb-B phase diagram.
+$ 
+$PARAM G(BCC_A2,B:VA) 298.15 +GHSERBB#+43514-12.217*T; 6000 N PURE3 !
+$PARAM G(BCC_A2,B:VA) 298.15 +35778.716+94.894864*T-15.6641*T*LN(T)
+$        -6.864515E-3*T**2+0.618878E-6*T**3+370843*T**(-1);  
+$  1100.00 Y +26864.526+172.584744*T-26.6047*T*LN(T)
+$        -0.79809E-3*T**2-0.02556E-6*T**3+1748270*T**(-1);  
+$  2348.00 Y +6846.418+219.119244*T-31.5957527*T*LN(T)
+$        -1.59488E-3*T**2+0.134719E-6*T**3+11205883*T**(-1);  
+$  3000.00 N PURE4 !
+ PARAM G(BCC_A2,B:VA) 298.15 +GBCCBB#; 6000 N PURE3 !
+
+$ From COST507 database:
+$PARAM G(HCP_A3,B:VA) 298.15 +GHSERBB#+50208-9.706*T; 6000 N PURE3 !
+ PARAM G(HCP_A3,B:VA) 298.15 +GHCPBB#; 6000 N PURE3 !
+
+$ From COST507 database - add 10 J to data to make it unstable 
+$                           relative to BETA_RHOMBO_B
+ PARAM G(DIAMOND_A4,B) 298.15 +GHSERBB#+10; 6000 N PURE5 !
+ 
+$ From COST507 Round 2 database 
+$ Revised in PURE5.0. 
+$PARAM G(GRAPHITE,B)   298.15 +GHSERBB#+5000;      6000 N PURE3 !
+ PARAM G(GRAPHITE,B)   298.15 +GHSERBB#+10000-2*T; 6000 N PURE5 !
+ 
+$ Introduced for version 5.0 of database:
+ PARAM G(ALPHA_RHOMBO_B,B) 298.15 
+     -6076.24+86.648762*T-12.942464*T*LN(T)
+    -7.089468E-3*T**2+0.659896E-6*T**3-45*T**(-1); 1400 Y
+     +28477.506-106.789208*T+12.1072478*T*LN(T)
+    -13.316875E-3*T**2+0.706895E-6*T**3-8002403*T**(-1); 3000 Y
+     -25699.64+225.127135*T-31.4*T*LN(T); 6000 N PURE5 !
+
+ PARAM G(BETA_RHOMBO_B,B) 298.15 +GHSERBB#; 6000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Ba
+$ -------------------------------------
+$  Stable (allotropic): 
+$  Metastable:          
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,BA)    298.15 +GLIQBA#;  4000 N PURE3 !
+ 
+$PARAM G(FCC_A1,BA:VA) 298.15 +GHSERBA#+1800+0.6*T; 4000 N PURE3 !
+ PARAM G(FCC_A1,BA:VA) 298.15 +GFCCBA#;  4000 N PURE3 !
+ 
+ PARAM G(BCC_A2,BA:VA) 298.15 +GHSERBA#; 4000 N PURE1 !
+ 
+$PARAM G(HCP_A3,BA:VA) 298.15 +GHSERBA#+2000+1.3*T; 4000 N PURE3 !
+ PARAM G(HCP_A3,BA:VA) 298.15 +GHCPBA#;  4000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Be
+$ -------------------------------------
+$  Stable (allotropic): BCC_A2 --> LIQUID
+$  Metastable:          FCC_A1, HCP_A3 
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,BE)    298.15 +GLIQBE#;  3000 N PURE3 !
+ 
+$PARAM G(FCC_A1,BE:VA)   298.15 +GHSERBE#+6349-1.085*T; 3000 N PURE3 !
+ PARAM G(FCC_A1,BE:VA) 298.15 +GFCCBE#;  3000 N PURE3 !
+ 
+ PARAM G(BCC_A2,BE:VA) 298.15 +GBCCBE#;  3000 N PURE3 !
+ 
+ PARAM G(HCP_A3,BE:VA) 298.15 +GHSERBE#; 3000 N PURE1 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Bi
+$ -------------------------------------
+$  Stable (allotropic): RHOMBOHEDRAL_A7 --> LIQUID
+$  Metastable:          FCC_A1, BCC_A2, HCP_A3, DIAMOND_A4, BCT_A5, 
+$                          TETRAGONAL_A6, TET_ALPHA1 
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,BI)    298.15 +GLIQBI#;               3000 N PURE3 !
+ 
+$PARAM G(FCC_A1,BI:VA) 298.15 +GHSERBI#+9900-12.5*T;  3000 N PURE3 !
+ PARAM G(FCC_A1,BI:VA) 298.15 +GFCCBI#; 3000 N PURE3 !
+ 
+$PARAM G(BCC_A2,BI:VA) 298.15 +GHSERBI#+11297-13.9*T; 3000 N PURE3 !
+ PARAM G(BCC_A2,BI:VA) 298.15 +GBCCBI#; 3000 N PURE3 !
+ 
+$PARAM G(HCP_A3,BI:VA) 298.15 +GHSERBI#+9900-11.8*T;  3000 N PURE3 !
+ PARAM G(HCP_A3,BI:VA) 298.15 +GHCPBI#; 3000 N PURE3 !
+ 
+$ Introduced for version 5.0 of database:
+$    Data for Diamond_A4 from P Y Chevalier, 
+$             Private Communication January 2004
+ PARAM G(DIAMOND_A4,BI)      298.15 +GHSERBI#+11296.8+9.253655*T; 
+                                                       3000 N PURE5 !
+ 
+ PARAM G(BCT_A5,BI)          298.15 +GHSERBI#+4184.07; 3000 N PURE3 !
+ 
+ PARAM G(RHOMBOHEDRAL_A7,BI) 298.15 +GHSERBI#;         3000 N PURE1 !
+ 
+ PARAM G(TETRAGONAL_A6,BI)   298.15 +GHSERBI#+4184.07; 3000 N PURE3 !
+ 
+ PARAM G(TET_ALPHA1,BI)      298.15 +GHSERBI#+4234;    3000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Br
+$ -------------------------------------
+$ Introduced for version 4.4 of database
+$   Source of data: 
+$     SGTE Substances Database (1996)
+$ -------------------------------------
+$  Stable (allotropic): LIQUID/BR2_L
+$  Metastable:          GAS_Br2
+$ ----------------------------------------------------------------------
+$ 
+ PARAM G(GAS,BR2)    298.15 +GGASBR2#+RTLNP#;  6000 N PURE4 !
+
+$           merged into LIQUID in PURE5 /PF-2010
+$PARAM G(BR2_L,BR2)  298.15 +2*GHSERBR#;       6000 N PURE4 !
+ PARAM G(LIQUID,BR2) 298.15 +2*GHSERBR#;       6000 N PURE4 !
+$ -------------------------------------
+
+$========================================================================
+$ C
+$ -------------------------------------
+$  Stable (allotropic): GRAPHITE --> LIQUID 
+$  Metastable:          DIAMOND_A4, GAS 
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,C)     298.15 +GHSERCC#+117369-24.63*T; 6000 N PURE3 !
+ PARAM G(LIQUID,C)     298.15 +GLIQCC#;  6000 N PURE3 !
+ 
+ PARAM G(GRAPHITE,C)   298.15 +GHSERCC#; 6000 N PURE1 !
+ 
+ PARAM G(DIAMOND_A4,C) 298.15 +GDIACC#;  6000 N PURE3 !
+
+$ Introduced for version 4.4 of database
+$   Source of data: 
+$     SGTE Substances Database (1996)
+$ 
+ PARAM G(GAS,C)  298.15 +GGASC1#+RTLNP#;  20000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Ca
+$ -------------------------------------
+$  Stable (allotropic): FCC_A1 --> BCC_A2 --> LIQUID 
+$  Metastable:          HCP_A3 
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,CA)    298.15 +GLIQCA#;  3001 N PURE5 !
+ 
+ PARAM G(FCC_A1,CA:VA) 298.15 +GHSERCA#; 3001 N PURE1 !
+ 
+ PARAM G(BCC_A2,CA:VA) 298.15 +GBCCCA#;  3001 N PURE5 !
+ 
+$PARAM G(HCP_A3,CA:VA) 298.15 +GHSERCA#+500+0.7*T; 3000 N PURE3 !
+ PARAM G(HCP_A3,CA:VA) 298.15 +GHCPCA#;  3001 N PURE5 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Cd
+$ -------------------------------------
+$  Stable (allotropic): HCP_A3 --> LIQUID 
+$  Metastable:          FCC_A1, BCC_A2, BCT_A5, 
+$                         TETRAGONAL_A6, RHOMBOHEDRAL_A10
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,CD)    298.15 +GLIQCD#;  1600 N PURE3 !
+ 
+$  From Zakulski, Moser, Rzyman et al. 
+$       J. Phase Equil. 1993,14(2),184-196
+$PARAM G(FCC_A1,CD:VA) 298.15 +GHSERCD#+892.3-0.92*T; 1600 N PURE3 !
+ PARAM G(FCC_A1,CD:VA) 298.15 +GFCCCD#;  1600 N PURE3 !
+ 
+$ Introduced for version 5.0 of database:
+ PARAM G(BCC_A2,CD:VA) 298.15 +GBCCCD#;  1600 N PURE5 !
+ 
+ PARAM G(HCP_A3,CD:VA) 298.15 +GHSERCD#; 1600 N PURE1 !
+ 
+$ Introduced for version 4.1 of database:
+$   Source of data: Assessment of data the Cd-Hg system
+$     Jang, Silk, Watson, Bryant, Chart and Argent, 
+$       CALPHAD, 1995, 19(3), 415.
+$       The thermodynamics and phase diagrams of the Cd-Hg and Cd-Hg-Te
+$          systems.
+$ 
+ PARAM G(BCT_A5,CD)   298.15 +GHSERCD#+5000; 1600 N PURE4 !
+
+$From Zakulski, Moser, Rzyman et al. 
+$       J. Phase Equil. 1993,14(2),184-196
+ PARAM G(TETRAGONAL_A6,CD) 298.15 +GHSERCD#+892.3-0.92*T; 1600 N PURE3 !
+
+$ Introduced for version 4.1 of database:
+$   Source of data: Assessment of data the Cd-Hg system
+$     Jang, Silk, Watson, Bryant, Chart and Argent, 
+$       CALPHAD, 1995, 19(3), 415.
+$       The thermodynamics and phase diagrams of the Cd-Hg and Cd-Hg-Te
+$          systems.
+$ 
+ PARAM G(RHOMBOHEDRAL_A10,CD) 298.15 +GHSERCD#+800-0.62*T; 1600 N PURE4 !
+$ -------------------------------------
+
+$========================================================================
+$ Ce
+$ -------------------------------------
+$  Stable (allotropic): FCC_A1 --> BCC_A2 --> LIQUID 
+$  Metastable:          HCP_A3, DHCP 
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,CE)    298.15 +GLIQCE#;  4000 N PURE3 !
+ 
+ PARAM G(FCC_A1,CE:VA) 298.15 +GHSERCE#; 4000 N PURE1 !
+ 
+ PARAM G(BCC_A2,CE:VA) 298.15 +GBCCCE#;  4000 N PURE3 !
+ 
+$ From Peter Franke - Private communication
+$PARAM G(HCP_A3,CE:VA) 298.15 +GHSERCE#+50000; 4000 N PURE3 !
+ PARAM G(HCP_A3,CE:VA) 298.15 +GHCPCE#;  4000 N PURE5 !
+ 
+$ Revised for version 4.1 of database:
+$   Source of data:  
+$     Gschneider and Pecharsky, 
+$     JPE 1999, 20(6), 612-4. 
+$  
+$PARAM G(DHCP,CE)      298.15 +GHSERCE#-190+0.56886*T;   4000 N PURE3 !
+ PARAM G(DHCP,CE)      298.15 +GHSERCE#-122.539+0.433*T; 4000 N PURE5 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Cf
+$ -------------------------------------
+$ Introduced for version 4.1 of database:
+$     Soure of data: SGTE Substance Database (SSUB4)
+$ -------------------------------------
+$  Stable (allotropic): CF_S
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$ 
+ PARAM G(CF_S,CF) 298.15 +GHSERCF#; 6000 N PURE4 !
+$ -------------------------------------
+
+$========================================================================
+$ Cl
+$ -------------------------------------
+$ Introduced for version 4.4 of database
+$   Source of data: 
+$     SGTE Substances Database (1996)
+$ -------------------------------------
+$  Stable (allotropic): GAS_Cl2
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$ 
+$ DATA FOR CL2<GAS>
+ PARAM G(GAS,CL2) 298.15 +2*GHSERCL#+RTLNP#; 10000 N PURE4 !                             
+$ -------------------------------------
+
+$========================================================================
+$ Cm
+$ -------------------------------------
+$ Introduced for version 4.1 of database:
+$     Soure of data: SGTE Substance Database (SSUB4)
+$ -------------------------------------
+$  Stable (allotropic): CM_S --> CM_S2 --> LIQUID/CM_L
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$ 
+ PARAM G(CM_S,CM)  298.15 +GHSERCM#;  6000 N PURE4 !
+
+ PARAM G(CM_S2,CM) 298.15 +GHSERCM#+3242.6-2.092*T; 6000 N PURE4 !
+
+$           merged into LIQUID in PURE5 /PF-2010
+$PARAM G(CM_L,CM)   298.15 +GHSERCM#+17886.6-11.1426799*T; 6000 N PURE4 !
+ PARAM G(LIQUID,CM) 298.15 +GHSERCM#+17886.6-11.1426799*T; 6000 N PURE4 !
+
+$  An error was found in PURE4.4 regarding the following gaseous species; 
+$   it has been corrected in PURE4.5
+$PARAM G(GAS,CM)   298.15 +GGASAM1#+RTLNP#; 6000 N PURE4 !
+ PARAM G(GAS,CM)   298.15 +GGASCM1#+RTLNP#; 6000 N PURE4 !
+$ -------------------------------------
+
+$========================================================================
+$ Co
+$ -------------------------------------
+$  Stable (allotropic): HCP_A3 --> FCC_A1 --> LIQUID
+$  Metastable:          BCC_A2, CBCC_A2, CUB_A13
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,CO)    298.15 +GLIQCO#; 6000 N PURE3 !
+ 
+$PARAM G(FCC_A1,CO:VA) 298.15 +GHSERCO#+427.591-0.615248*T; 1768 Y
+$                             +GHSERCO#+427.591-0.615253*T; 6000 N PURE3 !
+ PARAM G(FCC_A1,CO:VA) 298.15 +GFCCCO#; 6000 N PURE5 !
+ PARAM TC(FCC_A1,CO:VA) 298.15 +1396; 6000 N PURE3 !
+ PARAM BM(FCC_A1,CO:VA) 298.15 +1.35; 6000 N PURE3 !
+ 
+$PARAM G(BCC_A2,CO:VA) 298.15 +GHSERCO#+2938-0.7138*T; 6000 N PURE3 !
+ PARAM G(BCC_A2,CO:VA) 298.15 +GBCCCO#; 6000 N PURE3 !
+ PARAM TC(BCC_A2,CO:VA) 298.15 +1450; 6000 N PURE3 !
+ PARAM BM(BCC_A2,CO:VA) 298.15 +1.35; 6000 N PURE3 !
+ 
+ PARAM G(HCP_A3,CO:VA)  298.15 +GHSERCO#; 6000 N PURE1 !
+ PARAM TC(HCP_A3,CO:VA) 298.15 +1396; 6000 N PURE3 !
+ PARAM BM(HCP_A3,CO:VA) 298.15 +1.35; 6000 N PURE3 !
+ 
+ PARAM G(CBCC_A12,CO:VA) 298.15 +GHSERCO#+4155; 6000 N PURE3 !
+ 
+ PARAM G(CUB_A13,CO:VA)  298.15 +GHSERCO#+3155; 6000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Cr
+$ -------------------------------------
+$  Stable (allotropic): BCC_A2 --> LIQUID 
+$  Metastable:          FCC_A1, HCP_A3, HCP_ZN, 
+$                       CBCC_A2, CUB_A13, LAVES_C15  
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,CR)    298.15 +GLIQCR#; 6000 N PURE3 !
+ 
+$PARAM G(FCC_A1,CR:VA) 298.15 +GHSERCR#+7284+0.163*T; 6000 N PURE3 !
+ PARAM G(FCC_A1,CR:VA) 298.15 +GFCCCR#; 6000 N PURE3 !
+ PARAM TC(FCC_A1,CR:VA) 298.15 -1109; 6000 N PURE3 !
+ PARAM BM(FCC_A1,CR:VA) 298.15 -2.46; 6000 N PURE3 !
+ 
+ PARAM G(BCC_A2,CR:VA) 298.15 +GHSERCR#; 6000 N PURE1 !
+ PARAM TC(BCC_A2,CR:VA) 298.15 -311.50; 6000 N PURE3 !
+ PARAM BM(BCC_A2,CR:VA) 298.15 -0.008;  6000 N PURE3 !
+ 
+$PARAM G(HCP_A3,CR:VA) 298.15 +GHSERCR#+4438; 6000 N PURE3 !
+ PARAM G(HCP_A3,CR:VA) 298.15 +GHCPCR#; 6000 N PURE3 !
+ PARAM TC(HCP_A3,CR:VA) 298.15 -1109; 6000 N PURE3 !
+ PARAM BM(HCP_A3,CR:VA) 298.15 -2.46; 6000 N PURE3 !
+ 
+$ Introduced for version 4.4 of database:
+ PARAM G(HCP_ZN,CR:VA)   298.15 +GHSERCR#+4439; 6000 N PURE4 !
+ 
+ PARAM G(CBCC_A12,CR:VA) 298.15 +GHSERCR#+11087+2.7196*T; 6000 N PURE3 !
+
+ PARAM G(CUB_A13,CR:VA)  298.15 +GHSERCR#+15899+0.6276*T; 6000 N PURE3 !
+
+$ The LAVES_C15 phase (avialble in PURE3) is kept here: 
+$ 
+ PARAM G(LAVES_C15,CR:CR) 298.15 -11570.82+472.44*T-80.724*T*LN(T)
+    +.00568305*T**2-4.43163E-06*T**3+417750*T**(-1); 2180 Y 
+     -89608.032+1032.54*T-150*T*LN(T)
+    -8.65578E+32*T**(-9); 6000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Cs
+$ -------------------------------------
+$  Stable (allotropic): BCC_A2 --> LIQUID 
+$  Metastable:          FCC_A1, HCP_A3
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,CS)    200 
+$   +GHSERCS#+2091.141-6.931035*T-3.56867E-18*T**7;    301.59 Y
+$   +GHSERCS#+2099.779-6.961111*T-7.8016E+21*T**(-9); 2000 N PURE3 !
+ PARAM G(LIQUID,CS)    200 +GLIQCS#;  2000 N PURE3 !
+ 
+$PARAM G(FCC_A1,CS:VA) 200 +GHSERCS#+500+1.3*T; 2000 N PURE3 !
+ PARAM G(FCC_A1,CS:VA) 200 +GFCCCS#;  2000 N PURE3 !
+ 
+ PARAM G(BCC_A2,CS:VA) 200 +GHSERCS#; 2000 N PURE1 !
+ 
+$PARAM G(HCP_A3,CS:VA) 200 +GHSERCS#+500+2*T; 2000 N PURE3 !
+ PARAM G(HCP_A3,CS:VA) 200 +GHCPCS#;  2000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Cu
+$ -------------------------------------
+$  Stable (allotropic): FCC_A1 --> LIQUID 
+$  Metastable:          BCC_A2, HCP_A3, HCP_ZN
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,CU)    298.15 +GLIQCU#;  3200 N PURE3 !
+ 
+ PARAM G(FCC_A1,CU:VA) 298.15 +GHSERCU#; 3200 N PURE1 !
+ 
+$PARAM G(BCC_A2,CU:VA) 298.15 +GHSERCU#+4017-1.255*T; 3200 N PURE3 !
+ PARAM G(BCC_A2,CU:VA) 298.15 +GBCCCU#;  3200 N PURE3 !
+ 
+$PARAM G(HCP_A3,CU:VA) 298.15 +GHSERCU#+600+0.2*T; 3200 N PURE4 !
+ PARAM G(HCP_A3,CU:VA) 298.15 +GHCPCU#;  3200 N PURE4 !
+ 
+$ Introduced for version 4.4 of database:
+ PARAM G(HCP_ZN,CU:VA) 298.15 +GHSERCU#+600+0.2*T; 3200 N PURE4 !
+
+$ The LAVES_C15 phase (avialble in PURE3) is kept here: 
+$ 
+ PARAM G(LAVES_C15,CU:CU) 298.15 -8311.374+391.455705*T-72.337176*T*LN(T)
+    -.00797052*T**2+3.87669E-07*T**3+157434*T**(-1); 1357.77 Y 
+     -25626.078+551.411484*T-94.14*T*LN(T)
+    +1.092501E+30*T**(-9); 3200 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ D   (DEUTERIUM)
+$ -------------------------------------
+$ Introduced for version 4.1 of database:
+$     Soure of data: SGTE Substance Database (SSUB4)
+$ -------------------------------------
+$  Stable (allotropic): GAS_D2
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$ 
+ PARAM G(GAS,D)    298.15 +GHSERD1#+RTLNP#;  6000 N PURE3 !
+
+ PARAM G(GAS,D2)   298.15 +GHSERD2#+RTLNP#; 20000 N PURE3 !
+
+ PARAM G(GAS,DT)   298.15 +GHSERDT#+RTLNP#; 20000 N PURE3 !
+$ -------------------------------------
+
+$========================================================================
+$ Dy
+$ -------------------------------------
+$  Stable (allotropic): HCP_A3 --> BCC_A2 --> LIQUID
+$  Metastable:          
+$ ----------------------------------------------------------------------
+$
+$ Data from Huasen Shen, Weijing Zhang, Guoquan Liu, 
+$           Run Wang and Zhenmin Du
+$           Report F-95-01, May 1995, Univ of Sc and Tech, Beijing
+$
+ PARAM G(LIQUID,DY)    100 +GLIQDY#;  3000 N PURE3 !
+ 
+$ Data from Huasen Shen, Weijing Zhang, Guoquan Liu, 
+$           Run Wang and Zhenmin Du
+$           Report F-95-01, May 1995, Univ of Sc and Tech, Beijing
+$
+ PARAM G(BCC_A2,DY:VA) 100 +GBCCDY#;  3000 N PURE3 !
+
+$ Data from Huasen Shen, Weijing Zhang, Guoquan Liu, 
+$           Run Wang and Zhenmin Du
+$           Report F-95-01, May 1995, Univ of Sc and Tech, Beijing
+$
+ PARAM G(HCP_A3,DY:VA) 100 +GHSERDY#; 3000 N PURE3 !
+ PARAM TC(HCP_A3,DY:VA) 100 +179; 3000 N PURE3 !
+ PARAM BM(HCP_A3,DY:VA) 100 +3.0; 3000 N PURE3 !
+$ -------------------------------------
+  
+$========================================================================
+$ Er
+$ -------------------------------------
+$  Stable (allotropic): HCP_A3 --> LIQUID
+$  Metastable:          BCC_A2
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,ER)    298.15 +GLIQER#;  3200 N PURE3 !
+
+$ Introduced for version 4.4 of database:
+$ New data - Susanne Norgren, 
+$            J P E 2000, 21(2), 148-156
+ PARAM G(BCC_A2,ER:VA) 298.15 +GBCCER#;  3200 N PURE4 !
+  
+ PARAM G(HCP_A3,ER:VA) 298.15 +GHSERER#; 3200 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Es
+$ -------------------------------------
+$ Introduced for version 4.1 of database:
+$     Soure of data: SGTE Substance Database (SSUB4)
+$  Stable (allotropic): ES_S --> LIQUID/ES_L
+$  Metastable:          GAS
+$ ----------------------------------------------------------------------
+$ 
+ PARAM G(ES_S,ES) 298.15 +GHSERES#;  6000 N PURE4 !
+
+$           merged into LIQUID in PURE5 /PF-2010
+$PARAM G(ES_L,ES)   298.15 +GHSERES#+9405.6-8.30150044*T; 6000 N PURE4 !
+ PARAM G(LIQUID,ES) 298.15 +GHSERES#+9405.6-8.30150044*T; 6000 N PURE4 !
+
+ PARAM G(GAS,ES)  298.15 +GGASES1#+RTLNP#; 6000 N PURE4 !
+$ -------------------------------------
+
+$========================================================================
+$ Eu
+$ -------------------------------------
+$  Stable (allotropic): BCC_A2 --> LIQUID 
+$  Metastable:          
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,EU)    298.15 +GLIQEU#;  1901 N PURE3 !
+ 
+$ Revised for version 5.0 of database:
+ PARAM G(BCC_A2,EU:VA) 298.15 +GHSEREU#; 1901 N PURE5 !
+$ -------------------------------------
+ 
+$========================================================================
+$ F
+$ -------------------------------------
+$ Introduced for version 4.4 of database
+$   Source of data: 
+$     SGTE Substances Database (1996)
+$ -------------------------------------
+$  Stable (allotropic): GAS_F2
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$ 
+$ DATA FOR F2<GAS>
+ PARAM G(GAS,F2) 298.15 +2*GHSERFF#+RTLNP#; 10000 N PURE4 !                              
+$ -------------------------------------
+
+$========================================================================
+$ Fe
+$ -------------------------------------
+$  Stable (allotropic): BCC_A2 --> FCC_A1 --> BCC_A2 --> LIQUID
+$  Metastable:          CUB_A13, CBCC_A12, ORTHORH_A20, TETRAG_U
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,FE) 298.15 
+$   +GHSERFE#+12040.17-6.55843*T-3.67516E-21*T**7; 1811  Y
+$   -10838.83+291.302*T-46*T*LN(T);      6000 N PURE3 !
+ PARAM G(LIQUID,FE)    298.15 +GLIQFE#;  6000 N PURE3 !
+ 
+$PARAM G(FCC_A1,FE:VA) 298.15 
+$   +GHSERFE#-1462.4+8.282*T-1.15*T*LN(T)+6.4E-04*T**2;  1811 Y
+$   +GHSERFE#-1713.815+.94001*T+4.9251E+30*T**(-9); 6000 N PURE3 !
+$
+$ Revised for version 4.4 of database:
+$   Slight changes to data for high temperature range since PURE4:
+$
+ PARAM G(FCC_A1,FE:VA) 298.15 +GFCCFE#;  6000 N PURE4 !
+ PARAM TC(FCC_A1,FE:VA) 298.15 -201;  6000 N PURE3 !
+ PARAM BM(FCC_A1,FE:VA) 298.15 -2.10; 6000 N PURE3 !
+ 
+ PARAM G(BCC_A2,FE:VA) 298.15 +GHSERFE#; 6000 N PURE1 !
+ PARAM TC(BCC_A2,FE:VA) 298.15 +1043; 6000 N PURE3 !
+ PARAM BM(BCC_A2,FE:VA) 298.15 +2.22; 6000 N PURE3 !
+ 
+$PARAM G(HCP_A3,FE:VA) 298.15 
+$   +GHSERFE#-3705.78+12.591*T-1.15*T*LN(T)+6.4E-04*T**2;  1811 Y
+$   +GHSERFE#-3957.199+5.24951*T+4.9251E+30*T**(-9); 6000 N PURE3 !
+$
+$ Revised for version 4.4 of database:
+$   Small changes to data for high temperature range since PURE4:
+$
+ PARAM G(HCP_A3,FE:VA) 298.15 +GHCPFE#;  6000 N PURE4 !
+
+ PARAM G(CBCC_A12,FE:VA)      298.15 +GHSERFE#+4745; 6000 N PURE3 !
+ 
+ PARAM G(CUB_A13,FE:VA)       298.15 +GHSERFE#+3745; 6000 N PURE3 !
+ 
+$ Introduced for version 4.4 of database:
+ PARAM G(ORTHORHOMBIC_A20,FE) 298.15 +GHSERFE#+5000; 6000 N PURE4 !
+
+$ Introduced for version 4.4 of database:
+ PARAM G(TETRAGONAL_U,FE)     298.15 +GHSERFE#+5000; 6000 N PURE4 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Fm
+$ -------------------------------------
+$ Introduced since version 4.1 of database:
+$     Soure of data: SGTE Substance Database (SSUB4)
+$ -------------------------------------
+$  Stable (allotropic): FM_S 
+$  Metastable:          GAS_Fm
+$ ----------------------------------------------------------------------
+$ 
+ PARAM G(FM_S,FM) 298.15 +GHSERFM#; 6000 N PURE4 !
+
+ PARAM G(GAS,FM)  298.15 +GGASFM1#+RTLNP#; 6000 N PURE4 !
+$ -------------------------------------
+
+$========================================================================
+$ Fr
+$ -------------------------------------
+$ Introduced since version 4.1 of database:
+$     Soure of data: SGTE Substance Database (SSUB4)
+$ -------------------------------------
+$  Stable (allotropic): FR_S 
+$  Metastable:          GAS 
+$ ----------------------------------------------------------------------
+$ 
+ PARAM G(FR_S,FR) 298.15 +GHSERFR#; 6000 N PURE4 !
+
+ PARAM G(GAS,FR)  298.15 +GGASFR1#+RTLNP#; 6000 N PURE4 !
+
+ PARAM G(GAS,FR2) 298.15 +GGASFR2#+RTLNP#; 6000 N PURE4 !
+$ -------------------------------------
+
+$========================================================================
+$ Ga
+$ -------------------------------------
+$  Stable (allotropic): ORTHORHOMBIC_GA --> LIQUID 
+$  Metastable:          FCC_A1, BCC_A2, HCP_A3/HCP_ZN, DIAMOND_A4, 
+$                         BCT_A5, TETRAGONAL_A6
+$ ----------------------------------------------------------------------
+$
+$ Changed for version 3.00: lower temperature limit now 200 K 
+ PARAM G(LIQUID,GA)    200 +GLIQGA#; 4000 N PURE4 !
+ 
+$ Changed for version 3.00: lower temperature limit now 200 K 
+$PARAM G(FCC_A1,GA:VA) 200 +GHSERGA#+3800-10.2*T; 4000 N PURE3 !
+ PARAM G(FCC_A1,GA:VA) 200 +GFCCGA#; 4000 N PURE4 !
+ 
+$ Changed for version 3.00: lower temperature limit now 200 K 
+$PARAM G(BCC_A2,GA:VA) 200 +GHSERGA#+4500-11.7*T; 4000 N PURE3 !
+ PARAM G(BCC_A2,GA:VA) 200 +GBCCGA#; 4000 N PURE4 !
+ 
+$ Changed for version 3.00: lower temperature limit now 200 K 
+$PARAM G(HCP_A3,GA:VA) 200 +GHSERGA#+4500-9.5*T; 4000 N PURE3 !
+ PARAM G(HCP_A3,GA:VA) 200 +GHCPGA#; 4000 N PURE4 !
+ 
+ PARAM G(HCP_ZN,GA:VA) 200 +GHSERGA#+4501-9.5*T; 4000 N PURE5 !
+
+ PARAM G(DIAMOND_A4,GA) 200 +GHSERGA#+20900-2*T; 4000 N PURE5 !
+ 
+$ Changed for version 3.00: lower temperature limit now 200 K 
+ PARAM G(BCT_A5,GA)     200 +GHSERGA#+3846-9.8*T; 4000 N PURE3 !
+
+$ Changed for version 3.00: lower temperature limit now 200 K 
+ PARAM G(ORTHORHOMBIC_GA,GA) 200 +GHSERGA#; 4000 N PURE3 !
+ 
+$ Changed for version 3.00: lower temperature limit now 200 K 
+ PARAM G(TETRAGONAL_A6,GA)   200 +GHSERGA#+3500-10*T; 4000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Gd
+$ -------------------------------------
+$  Stable (allotropic): HCP_A3 --> BCC_A2 --> LIQUID
+$  Metastable:          FCC_A1
+$ ----------------------------------------------------------------------
+$
+$ Data from Huasen Shen, Weijing Zhang, Guoquan Liu, 
+$           Run Wang and Zhenmin Du
+$           Report F-95-01, May 1995, Univ of Sc and Tech, Beijing.
+$
+ PARAM G(LIQUID,GD)    100 +GLIQGD#; 3600 N PURE3 !
+
+$ Data from M Zinkevich, N Mattern and H J Seiffert
+$           J P E 2000, 21(4), 385-394.
+ PARAM G(FCC_A1,GD:VA) 200 +GFCCGD#; 3600 N PURE4 !
+
+$ Data from Huasen Shen, Weijing Zhang, Guoquan Liu, 
+$           Run Wang and Zhenmin Du
+$           Report F-95-01, May 1995, Univ of Sc and Tech, Beijing.
+$
+$ Revised for version 5.0 of database:
+$   Small correction made to top two temperature ranges to ensure 
+$      continuity in Gibbs energy.
+$
+ PARAM G(BCC_A2,GD:VA) 100 +GBCCGD#; 3600 N PURE5 !
+ 
+$ Data from Huasen Shen, Weijing Zhang, Guoquan Liu, 
+$           Run Wang and Zhenmin Du
+$           Report F-95-01, May 1995, Univ of Sc and Tech, Beijing.
+$
+ PARAM G(HCP_A3,GD:VA) 200 +GHSERGD#; 3600 N PURE3 !
+ PARAM TC(HCP_A3,GD:VA) 200 +293.4; 3600 N PURE3 !
+ PARAM BM(HCP_A3,GD:VA) 200 +3.0;   3600 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Ge
+$ -------------------------------------
+$  Stable (allotropic): DIAMOND_A4 --> LIQUID
+$  Metastable:          FCC_A1, BCC_A2, HCP_A3, 
+$                       BCT_A5, RHOMBOHEDRAL_A7
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,GE)     298.15 +GLIQGE#;  3200 N PURE3 !
+ 
+$PARAM G(FCC_A1,GE:VA)  298.15 +GHSERGE#+36000-22.3*T; 3200 N PURE3 !
+ PARAM G(FCC_A1,GE:VA)  298.15 +GFCCGE#;  3200 N PURE3 !
+ 
+$PARAM G(BCC_A2,GE:VA)  298.15 +GHSERGE#+34100-23.5*T; 3200 N PURE3 !
+ PARAM G(BCC_A2,GE:VA)  298.15 +GBCCGE#;  3200 N PURE3 !
+ 
+$PARAM G(HCP_A3,GE:VA)  298.15 +GHSERGE#+35000-21.5*T; 3200 N PURE3 !
+ PARAM G(HCP_A3,GE:VA)  298.15 +GHCPGE#;  3200 N PURE3 !
+
+ PARAM G(DIAMOND_A4,GE) 298.15 +GHSERGE#; 3200 N PURE1 !
+ 
+$ Introduced for version 4.4 of database:
+$   Source of data: Unpublished work by Alan Dinsdale
+ PARAM G(BCT_A5,GE)          298.15 +GHSERGE#+28800-16.5*T; 3000 N PURE4!
+
+$ Introduced for version 4.4 of database:
+$   Source of data: Unpublished work by Alan Dinsdale
+ PARAM G(RHOMBOHEDRAL_A7,GE) 298.15 +GHSERGE#+29800-16.5*T; 3000 N PURE4!
+$ -------------------------------------
+ 
+$========================================================================
+$ H
+$ -------------------------------------
+$ Introduced for version 4.4 of database
+$   Source of data: 
+$     SGTE Substances Database (1996)
+$ -------------------------------------
+$  Stable (allotropic): GAS_H2
+$  Metastable:          None 
+$ ----------------------------------------------------------------------
+$ 
+$ DATA FOR H2<GAS>
+ PARAM G(GAS,H2) 298.15 +2*GHSERHH#+RTLNP#; 10000 N PURE4 !                             
+$ -------------------------------------
+
+$========================================================================
+$ He
+$ -------------------------------------
+$ Introduced for version 4.1 of database:
+$     Soure of data: SGTE Substance Database (SSUB4)
+$ -------------------------------------
+$  Stable (allotropic): GAS_HE
+$  Metastable:          None 
+$ ----------------------------------------------------------------------
+$ 
+ PARAM G(GAS,HE) 298.15 +GHSERHE#+RTLNP#; 6000 N PURE4 !
+$ -------------------------------------
+
+$========================================================================
+$ Hf
+$ -------------------------------------
+$  Revised for version 4.4 of database
+$ -------------------------------------
+$  Stable (allotropic): HCP_A3 --> BCC_A2 --> LIQUID
+$  Metastable:          FCC_A1
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,HF)    298.15 +GLIQHF#;  3001 N PURE4 !
+ 
+$PARAM G(FCC_A1,HF:VA) 298.15 +GHSERHF#+10000-2.2*T; 3000 N PURE3 !
+ PARAM G(FCC_A1,HF:VA) 298.15 +GFCCHF#;  3001 N PURE4 !
+ 
+ PARAM G(BCC_A2,HF:VA) 298.15 +GBCCHF#;  3001 N PURE4 !
+ 
+ PARAM G(HCP_A3,HF:VA) 298.15 +GHSERHF#; 3001 N PURE4 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Hg
+$ -------------------------------------
+$  Stable (allotropic): LIQUID 
+$  Metastable:          FCC_A1, HCP_A3, TETRAGONAL_A6, RHOMBOHEDRAL_A10
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,HG)    200 +GHSERHG#; 2000 N PURE1 !
+ 
+$ Revised for version 5.0 of database:
+$   Maitre A; Fiorani J M; Vilasi M; 
+$     J Phase Equilib; 2002, 23(4), 329
+$ 
+ PARAM G(FCC_A1,HG:VA) 200 +GFCCHG#;  2000 N PURE5 !
+ 
+$ Introduced for version 4.4 of database:
+$   Source of data:  Assessment of data the Cd-Hg system
+$     Jang, Silk, Watson, Bryant, Chart and Argent, 
+$       CALPHAD, 1995, 19(3), 415.
+$       The thermodynamics and phase diagrams of the Cd-Hg 
+$         and Cd-Hg-Te systems.
+$ 
+ PARAM G(HCP_A3,HG:VA) 200 +GHCPHG#;  2000 N PURE4 !
+
+$ Introduced for version 4.4 of database:
+$   Source of data:  Assessment of data the Cd-Hg system
+$     Jang, Silk, Watson, Bryant, Chart and Argent, 
+$       CALPHAD, 1995, 19(3), 415.
+$       The thermodynamics and phase diagrams of the Cd-Hg 
+$         and Cd-Hg-Te systems.
+$ 
+ PARAM G(TETRAGONAL_A6,HG) 200 -10459.721+125.04019*T-28.847*T*LN(T)
+    +16.99705E-3*T**2-24.555667E-6*T**3+13330*T**(-1); 234.32 Y
+     -11216.714+137.69375*T-30.2091*T*LN(T)
+    +1.07555E-3*T**2-0.228298E-6*T**3+35545*T**(-1); 2000 N PURE4 !
+
+ PARAM G(RHOMBOHEDRAL_A10,HG) 200 +GRHOMBHG#; 2000 N PURE5 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Ho
+$ -------------------------------------
+$  Stable (allotropic): HCP_A3 --> LIQUID
+$  Metastable:          BCC_A2 
+$ ----------------------------------------------------------------------
+$
+$ Revised for version 4.4 of database:
+$   Source of data:  
+$     Susanne Norgren, JPE 2000, 21(2), 148-156
+$ 
+ PARAM G(LIQUID,HO)    298.15 +GLIQHO#;  3001 N PURE4 !
+ 
+$ Revised for version 4.4 of database:
+$   Source of data:  
+$     Susanne Norgren, JPE 2000, 21(2), 148-156
+$ 
+ PARAM G(BCC_A2,HO:VA) 298.15 +GBCCHO#;  3001 N PURE4 !
+ 
+$ Revised for version 5.0 of database:
+ PARAM G(HCP_A3,HO:VA) 298.15 +GHSERHO#; 3001 N PURE5 !
+$ -------------------------------------
+ 
+$========================================================================
+$ I
+$ -------------------------------------
+$ Introduced I2_S, I2_L & GAS_I2 since version 4.4 of database
+$   Source of data: 
+$     SGTE Substances Database (1996)
+$ -------------------------------------
+$  Stable (allotropic): I2_S --> LIQUID/I2_L
+$  Metastable:          GAS_I2
+$ ----------------------------------------------------------------------
+$ 
+ PARAM G(I2_S,I2) 298.15 +2*GHSERII#; 1000 N PURE4 !
+
+$           merged into LIQUID in PURE5 /PF-2010
+$PARAM G(I2_L,I2)   298.15 +2*GHSERII#+15517.2-40.1272304*T; 1000 N PURE4!
+ PARAM G(LIQUID,I2) 298.15 +2*GHSERII#+15517.2-40.1272304*T; 1000 N PURE4!
+
+ PARAM G(GAS,I2)  298.15 +GGASI2#+RTLNP#;  6000 N PURE4 !
+$ -------------------------------------
+
+$========================================================================
+$ In
+$ -------------------------------------
+$  Stable (allotropic): TETRAGONAL_A6 --> LIQUID
+$  Metastable:          FCC_A1, BCC_A2, HCP_A3/HCP_ZN, DHCP, 
+$                       BCT_A5, RHOMBOHEDRAL_A7, TET_ALPHA1 
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,IN)    298.15 +GLIQIN#; 3800 N PURE4 !
+ 
+$ Revised for version 4.4 of database:
+$   Source of data:  
+$     Boa and Ansara, Thermochimica Acta 1998, 314, 79-86
+$ 
+$PARAM G(FCC_A1,IN:VA) 298.15 +GHSERIN#+123-.1988*T; 3800 N PURE3 !
+ PARAM G(FCC_A1,IN:VA) 298.15 +GFCCIN#; 3800 N PURE4 !
+ 
+$PARAM G(BCC_A2,IN:VA) 298.15 +GHSERIN#+800-0.8*T; 3800 N PURE3 !
+ PARAM G(BCC_A2,IN:VA) 298.15 +GBCCIN#; 3800 N PURE3 !
+ 
+$PARAM G(HCP_A3,IN:VA) 298.15 +GHSERIN#+533-0.6868*T; 3800 N PURE3 !
+ PARAM G(HCP_A3,IN:VA) 298.15 +GHCPIN#; 3800 N PURE5 !
+ 
+$ Introduced for version 4.4 of database:
+ PARAM G(HCP_ZN,IN:VA) 298.15 +GHSERIN#+533-0.6868*T; 3800 N PURE4 !
+
+$ Introduced for version 5.0 of database:
+$   Source of data: 
+$     HS Liu, Y Cui, K Ishida, ZP Jin: CALPHAD, 2003, 27, 27-37
+$ 
+ PARAM G(DHCP,IN)    298.15 +GHSERIN#+520-0.384*T; 3800 N PURE5 !
+ 
+$ Introduced for version 4.4 of database:
+$   Source of data:  
+$     Unpublished assessment of the In-Sn system by Himo Ansara 
+$ 
+ PARAM G(BCT_A5,IN)  298.15 +GHSERIN#+5040.87-3.33969*T; 3800 N PURE4 !
+
+ PARAM G(TETRAGONAL_A6,IN) 298.15 +GHSERIN#; 3800 N PURE1 !
+
+$ Introduced for version 4.4 of database:
+$   Source of data:  
+$     Boa and Ansara, Thermochimica Acta 1998, 314, 79-86
+$ 
+ PARAM G(RHOMBOHEDRAL_A7,IN) 298.15 +GHSERIN#+4184; 3800 N PURE4 !
+
+$ Tet_alpha1 is the same phase as InSn_beta. 
+$ Data are taken from unpublished assessment of 
+$       the In-Sn system from Himo Ansara
+$ 
+$PARAM G(TET_ALPHA1,IN) 298.15 +GHSERIN#+193-0.16479*T; 3800 N PURE3 !
+ PARAM G(TET_ALPHA1,IN) 298.15 +GHSERIN#+123-0.1988*T;  3800 N PURE4 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Ir
+$ -------------------------------------
+$  Stable (allotropic): FCC_A1 --> LIQUID
+$  Metastable:          BCC_A2, HCP_A3
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,IR)    298.15 +GLIQIR#;  4000 N PURE3 !
+ 
+ PARAM G(FCC_A1,IR:VA) 298.15 +GHSERIR#; 4000 N PURE1 !
+ 
+$PARAM G(BCC_A2,IR:VA) 298.15 +GHSERIR#+32000-6.9*T; 4000 N PURE3 !
+ PARAM G(BCC_A2,IR:VA) 298.15 +GBCCIR#;  4000 N PURE3 !
+ 
+$PARAM G(HCP_A3,IR:VA) 298.15 +GHSERIR#+4000-0.6*T;  4000 N PURE3 !
+ PARAM G(HCP_A3,IR:VA) 298.15 +GHCPIR#;  4000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ K
+$ -------------------------------------
+$  Stable (allotropic): BCC_A2 --> LIQUID
+$  Metastable:          FCC_A1, HCP_A3
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,K) 200.00 
+$   +GHSERKK#+2318.096-6.886859*T-9.44E-19*T**7; 336.53 Y
+$   +GHSERKK#+2323.019-6.902217*T-1.19223E+22*T**(-9); 2200 N PURE3 !
+ PARAM G(LIQUID,K)    200 +GLIQKK#;  2200 N PURE4 !
+ 
+ PARAM G(BCC_A2,K:VA) 200 +GHSERKK#; 2200 N PURE1 !
+ 
+$PARAM G(FCC_A1,K:VA) 200 +GHSERKK#+50+1.3*T; 2200 N PURE3 !
+ PARAM G(FCC_A1,K:VA) 200 +GFCCKK#;  2200 N PURE3 !
+ 
+$PARAM G(HCP_A3,K:VA) 200 +GHSERKK#+50+2*T; 2200 N PURE3 !
+ PARAM G(HCP_A3,K:VA) 200 +GHCPKK#;  2200 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Kr
+$ -------------------------------------
+$ Introduced for version 4.1 of database:
+$     Soure of data: SGTE Substance Database (SSUB4)
+$ -------------------------------------
+$  Stable (allotropic): GAS_Kr
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$ 
+ PARAM G(GAS,KR) 298.15 +GHSERKR#+RTLNP#; 6000.00 N PURE4 !
+$ -------------------------------------
+
+$========================================================================
+$ La
+$ -------------------------------------
+$  Stable (allotropic): DHCP --> FCC_A1 --> BCC_A2 --> LIQUID
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,LA)    298.15 +GLIQLA#;  4000 N PURE3 !
+ 
+ PARAM G(FCC_A1,LA:VA) 298.15 +GFCCLA#;  4000 N PURE3 !
+ 
+ PARAM G(BCC_A2,LA:VA) 298.15 +GBCCLA#;  4000 N PURE3 !
+ 
+ PARAM G(DHCP,LA)      298.15 +GHSERLA#; 4000 N PURE1 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Li
+$ -------------------------------------
+$  Stable (allotropic): BCC_A2 --> LIQUID 
+$  Metastable:          FCC_A1, HCP_A3
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,LI)   200 
+$   +GHSERLI#+2700.205-5.795621*T; 250 Y
+$   +12015.027-362.187078*T+61.6104424*T*LN(T)-.182426463*T**2
+$     +6.3955671E-05*T**3-559968*T**(-1);  453.60 Y
+$   -6057.31+172.652183*T-31.2283718*T*LN(T)+.002633221*T**2
+$     -4.38058E-07*T**3-102387*T**(-1);  500.00 Y
+$   +GHSERLI#+3005.684-6.626102*T;    3000 N PURE3 !
+ PARAM G(LIQUID,LI)    200 +GLIQLI#;  3000 N PURE5 !
+ 
+$PARAM G(FCC_A1,LI:VA) 200 +GHSERLI#-108+1.3*T; 3000 N PURE3 !
+ PARAM G(FCC_A1,LI:VA) 200 +GFCCLI#;  3000 N PURE5 !
+ 
+$ Revised for version 5.0 of database:
+ PARAM G(BCC_A2,LI:VA) 200 +GHSERLI#; 3000 N PURE5 !
+ 
+$PARAM G(HCP_A3,LI:VA) 200 +GHSERLI#-154+2*T; 3000 N PURE3 !
+ PARAM G(HCP_A3,LI:VA) 200 +GHCPLI#;  3000 N PURE5 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Lu
+$ -------------------------------------
+$  Stable (allotropic): HCP_A3 --> LIQUID
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,LU)    298.15 +GLIQLU#;  3700 N PURE3 !
+ 
+ PARAM G(HCP_A3,LU:VA) 298.15 +GHSERLU#; 3700 N PURE1 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Mg
+$ -------------------------------------
+$  Stable (allotropic): HCP_A3 --> LIQUID
+$  Metastable:          FCC_A1, BCC_A2, HCP_ZN, CBCC_A12, CUB_A13
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,MG) 298.15 
+$   +GHSERMG#+8202.243-8.83693*T-8.0176E-20*T**7;  923 Y
+$   -5439.869+195.324057*T-34.3088*T*LN(T); 3000 N PURE3 !
+ PARAM G(LIQUID,MG)    298.15 +GLIQMG#; 3000 N PURE3 !
+ 
+$PARAM G(FCC_A1,MG:VA) 298.15 +GHSERMG#+2600-0.9*T; 3000 N PURE3 !
+ PARAM G(FCC_A1,MG:VA) 298.15 +GFCCMG#; 3000 N PURE3 !
+ 
+$PARAM G(BCC_A2,MG:VA) 298.15 +GHSERMG#+3100-2.1*T; 3000 N PURE3 !
+ PARAM G(BCC_A2,MG:VA) 298.15 +GBCCMG#; 3000 N PURE3 !
+ 
+ PARAM G(HCP_A3,MG:VA) 298.15 +GHSERMG#; 3000 N PURE1 !
+ 
+$ Introduced for version 4.4 of database:
+ PARAM G(HCP_ZN,MG:VA) 298.15 +GHSERMG#+100; 3000 N PURE4 !
+ 
+ PARAM G(CBCC_A12,MG:VA) 298.15 +GHSERMG#+4602.4-3.011*T; 3000 N PURE3 !
+ 
+ PARAM G(CUB_A13,MG:VA)  298.15 +GHSERMG#+5000-3*T; 3000 N PURE3 !
+
+$ The LAVES_C15 phase (avialble in PURE3) is kept here: 
+$ 
+ PARAM G(LAVES_C15,MG:MG) 298.15 
+    -10102.02+431.026641*T-78.5549346*T*LN(T)
+     +0.0014574*T**2-4.181007E-06*T**3+236850*T**(-1); 923.00 Y 
+    -27390.555+614.148645*T-102.9264*T*LN(T)
+     +3.11458E+28*T**(-9); 3000 N PURE4 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Mn
+$ -------------------------------------
+$ General for version 4.4 of the database: 
+$    Incorporation of Volumetric information from Caian Qiu and 
+$      Sybrand van der Zwaag, 
+$        J. Phys. Chem. Solids, 1998, 59(2), 167-174
+$ 
+$    HCP volumetric data assumed to be the same as those for FCC
+$ -------------------------------------
+$  Stable (allotropic): CBCC_A12-->CUB_A13-->FCC_A1-->BCC_A2-->LIQUID
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,MN)    298.15 +GLIQMN#; 2000 N PURE4 !
+ 
+ PARAM G(FCC_A1,MN:VA) 298.15 +GFCCMN#; 2000 N PURE4 !
+ PARAM TC(FCC_A1,MN:VA) 298.15 -1620; 2000 N PURE3 !
+ PARAM BM(FCC_A1,MN:VA) 298.15 -1.86; 2000 N PURE3 !
+ 
+ PARAM G(BCC_A2,MN:VA) 298.15 +GBCCMN#; 2000 N PURE4 !
+ PARAM TC(BCC_A2,MN:VA) 298.15 -580;  2000 N PURE3 !
+ PARAM BM(BCC_A2,MN:VA) 298.15 -0.27; 2000 N PURE3 !
+ 
+ PARAM G(HCP_A3,MN:VA) 298.15 +GHCPMN#; 2000 N PURE4 !
+ PARAM TC(HCP_A3,MN:VA) 298.15 -1620; 2000 N PURE3 !
+ PARAM BM(HCP_A3,MN:VA) 298.15 -1.86; 2000 N PURE3 !
+ 
+ PARAM G(CBCC_A12,MN:VA) 298.15 +GHSERMN#; 2000 N PURE4 !
+ PARAM TC(CBCC_A12,MN:VA) 298.15 -285;  2000 N PURE3 !
+ PARAM BM(CBCC_A12,MN:VA) 298.15 -0.66; 2000 N PURE3 !
+ 
+ PARAM G(CUB_A13,MN:VA)   298.15
+     -5800.4+135.995*T-24.8785*T*LN(T)
+    -5.83359E-3*T**2+70269*T**(-1);  1519 Y
+     -28290.76+311.2933*T-48*T*LN(T)+396.757E28*T**(-9); 2000 N PURE4 !
+
+$ The LAVES_C14 phase (avialble in PURE3) is kept here: 
+$ 
+ PARAM G(LAVES_C14,MN:MN) 298.15 
+    -21345.84+390.177*T-70.3746*T*LN(T)
+     -0.02204304*T**2+209481*T**(-1);  1519.00 Y 
+    -83200.23+936.7944*T-144*T*LN(T)
+     +4.97054E+30*T**(-9); 2000 N PURE4 !
+$ -------------------------------------
+  
+$========================================================================
+$ Mo
+$ -------------------------------------
+$  Stable (allotropic): BCC_A2 --> LIQUID
+$  Metastable:          FCC_A1, HCP_A3
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,MO) 298.15 
+$   +GHSERMO#+41831.347-14.694912*T+4.24519E-22*T**7;  2896 Y
+$   +3538.963+271.6697*T-42.63829*T*LN(T);  5000 N PURE3 !
+ PARAM G(LIQUID,MO)    298.15 +GLIQMO#;  5000 N PURE3 !
+ 
+$PARAM G(FCC_A1,MO:VA) 298.15 +GHSERMO#+15200+.63*T; 5000 N PURE3 !
+ PARAM G(FCC_A1,MO:VA) 298.15 +GFCCMO#;  5000 N PURE3 !
+ 
+ PARAM G(BCC_A2,MO:VA) 298.15 +GHSERMO#; 5000 N PURE1 !
+ 
+$PARAM G(HCP_A3,MO:VA) 298.15 +GHSERMO#+11550; 5000 N PURE3 !
+ PARAM G(HCP_A3,MO:VA) 298.15 +GHCPMO#;  5000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ N
+$ -------------------------------------
+$  Stable (allotropic): GAS_N2
+$  Metastable:          LIQUID_N1(Solubility)
+$ ----------------------------------------------------------------------
+$
+$ DATA FOR 1/2N2<GAS>
+ PARAM G(GAS,N2)   298.15 +2*GHSERNN#; 6000 N PURE3 !
+ 
+$PARAM G(LIQUID,N) 298.15 +GHSERNN#+29950+59.02*T; 6000 N PURE3 !
+ PARAM G(LIQUID,N) 298.15 +GLIQNN#;    6000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Na
+$ -------------------------------------
+$  Stable (allotropic): BCC_A2 --> LIQUID
+$  Metastable:          FCC_A1, HCP_A3
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,NA) 200.00 
+$   +GHSERNA#+2581.02-6.95218*T-2.76132E-18*T**7;  370.87 Y
+$   +GHSERNA#+2609.444-7.032656*T-1.65071E+23*T**(-9); 2300 N PURE3 !
+ PARAM G(LIQUID,NA)    200 +GLIQNA#;  2300 N PURE3 !
+ 
+$PARAM G(FCC_A1,NA:VA) 200 +GHSERNA#-50+1.3*T; 2300 N PURE3 !
+ PARAM G(FCC_A1,NA:VA) 200 +GFCCNA#;  2300 N PURE3 !
+ 
+ PARAM G(BCC_A2,NA:VA) 200 +GHSERNA#; 2300 N PURE1 !
+ 
+$PARAM G(HCP_A3,NA:VA) 200 +GHSERNA#-104+2*T; 2300 N PURE3 !
+ PARAM G(HCP_A3,NA:VA) 200 +GHCPNA#;  2300 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Nb
+$ -------------------------------------
+$  Stable (allotropic): BCC_A2 --> LIQUID
+$  Metastable:          FCC_A1, HCP_A3
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,NB)    298.15 +GLIQNB#;  6000 N PURE3 !
+ 
+$PARAM G(FCC_A1,NB:VA) 298.15 +GHSERNB#+13500+1.7*T; 6000 N PURE3 !
+ PARAM G(FCC_A1,NB:VA) 298.15 +GFCCNB#;  6000 N PURE3 !
+ 
+ PARAM G(BCC_A2,NB:VA) 298.15 +GHSERNB#; 6000 N PURE1 !
+ 
+$PARAM G(HCP_A3,NB:VA) 298.15 +GHSERNB#+10000+2.4*T; 6000 N PURE3 !
+ PARAM G(HCP_A3,NB:VA) 298.15 +GHCPNB#;  6000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Nd
+$ -------------------------------------
+$  Stable (allotropic): DHCP --> BCC_A2 --> LIQUID
+$  Metastable:          FCC_A1, HCP_A3
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,ND)    298.15 
+$   +GHSERND#+5051.743-1.585076*T; 300 Y
+$   +5350.01-86.593963*T+5.357301*T*LN(T)
+$    -0.046955463*T**2+6.860782E-06*T**3-374380*T**(-1);  1128 Y
+$   -16335.232+268.625903*T-48.7854*T*LN(T);  1799 Y
+$   +GHSERND#+9407.099-7.631185*T;  1800 N PURE3 !
+ PARAM G(LIQUID,ND)    298.15 +GLIQND#;  1800 N PURE3 !
+
+$ Revised for version 4.4 of database:
+$   Source of data:  
+$     COST507 database
+$       
+$PARAM G(FCC_A1,ND:VA) 298.15 
+$   +GHSERND#+500;  1128 Y
+$   +GHSERND#+500+9.99999884E-07*T+3.00000011E-07*T*LN(T); 1799 Y
+$   +GHSERND#+500;  1800 N PURE3 !
+ PARAM G(FCC_A1,ND:VA) 298.15 +GFCCND#;  1800 N PURE4 !
+ 
+$PARAM G(BCC_A2,ND:VA) 298.15 
+$   +GHSERND#+1437.295-.546281*T; 400 Y
+$   +7312.2-153.033976*T+14.9956777*T*LN(T)
+$    -0.050479*T**2+7.287217E-06*T**3-831810*T**(-1);  1128 Y
+$   -18030.266+239.677322*T-44.5596*T*LN(T);  12890 Y
+$   +334513.017-2363.9199*T+311.409193*T*LN(T)
+$    -0.156030778*T**2+1.2408421E-05*T**3
+$    -64319604*T**(-1); 1800 N PURE3 !
+ PARAM G(BCC_A2,ND:VA) 298.15 +GBCCND#;  1800 N PURE3 !
+ 
+$ Introduced for version 4.4 of database:
+$   Source of data:  
+$     Susanne Norgren, Thesis, KTH 2000
+$       
+ PARAM G(HCP_A3,ND:VA) 298.15 +GHCPND#;  1800 N PURE4 !
+
+ PARAM G(DHCP,ND)      298.15 +GHSERND#; 1800 N PURE1 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Ne
+$ -------------------------------------
+$ Introduced since version 4.1 of the PURE database:
+$     Soure of data: SGTE Substance Database (SSUB4)
+$ -------------------------------------
+$  Stable (allotropic): GAS_Ne
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$ 
+ PARAM G(GAS,NE) 298.15 +GHSERNE#+RTLNP#; 6000.00 N PURE4 !
+$ -------------------------------------
+
+$========================================================================
+$ Ni
+$ -------------------------------------
+$ Revised for version 5.0 of database:
+$   Small corrections to data in version 5.0 for all the phases 
+$         to correct for mismatches across ranges at 1728 K
+$ -------------------------------------
+$  Stable (allotropic): FCC_A1 --> LIQUID
+$  Metastable:          BCC_A2, HCP_A3, BCT_A5, CBCC_A12, CUB_A13
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,NI)    298.15 
+$   +GHSERNI#+16414.686-9.397*T-3.82318E-21*T**7; 1728 Y
+$   -9549.775+268.598*T-43.1*T*LN(T);   3000 N PURE3 !
+ PARAM G(LIQUID,NI)    298.15 +GLIQNI#; 3000 N PURE5 !
+ 
+ PARAM G(FCC_A1,NI:VA) 298.15 +GHSERNI#; 3000 N PURE5 !
+ PARAM TC(FCC_A1,NI:VA) 298.15 +633;  3000 N PURE3 !
+ PARAM BM(FCC_A1,NI:VA) 298.15 +0.52; 3000 N PURE3 !
+ 
+$PARAM G(BCC_A2,NI:VA) 298.15 +GHSERNI#+8715.084-3.556*T; 3000 N PURE3 !
+ PARAM G(BCC_A2,NI:VA) 298.15 +GBCCNI#; 3000 N PURE5 !
+ PARAM TC(BCC_A2,NI:VA) 298.15 +575;  3000 N PURE3 !
+ PARAM BM(BCC_A2,NI:VA) 298.15 +0.85; 3000 N PURE3 !
+ 
+$PARAM G(HCP_A3,NI:VA) 298.15 +GHSERNI#+1046+1.255*T; 3000 N PURE3 !
+ PARAM G(HCP_A3,NI:VA) 298.15 +GHCPNI#; 3000 N PURE5 !
+ PARAM TC(HCP_A3,NI:VA) 298.15 +633;  3000 N PURE3 !
+ PARAM BM(HCP_A3,NI:VA) 298.15 +0.52; 3000 N PURE3 !
+
+$ G Ghosh; 
+$       Metall. Mater. Trans. A, 1999, 30A(6), 1481-1494.
+$ 
+ PARAM G(BCT_A5,NI)    298.15 +GHSERNI#+10023-4.556*T; 3000 N PURE5 !
+ 
+$PARAM G(CBCC_A12,NI:VA) 298.15 +GHSERNI#+3556; 3000 N PURE3 !
+ PARAM G(CBCC_A12,NI:VA) 298.15 +GHSERNI#+3556; 3000 N PURE5 !
+ 
+$PARAM G(CUB_A13,NI:VA)  298.15 +GHSERNI#+2092; 3000 N PURE3 !
+ PARAM G(CUB_A13,NI:VA)  298.15 +GHSERNI#+2092; 3000 N PURE5 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Np
+$ -------------------------------------
+$  Stable (allotropic): ORTHORHOMBIC_AC-->TETRAGONAL_AD-->BCC_A2-->LIQUID
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,NP)    298.15 +GLIQNP#;  4000 N PURE3 !
+ 
+ PARAM G(BCC_A2,NP:VA) 298.15 +GBCCNP#;  4000 N PURE3 !
+ 
+$PHASE ORTHO_AC is changed to ORTHORHOMBIC_AC in PURE5 /PF-2010:
+ PARAM G(ORTHORHOMBIC_AC,NP)  298.15 +GHSERNP#; 4000 N PURE1 !
+ 
+ PARAM G(TETRAGONAL_AD,NP)   298.15
+     -10157.32+183.829213*T-34.11*T*LN(T)
+    -16.1186E-3*T**2+4.98465E-6*T**3+532825*T**(-1);   555 Y
+     -7873.688+207.01896*T-39.33*T*LN(T);   856 Y
+     +19027.98-46.64846*T-3.4265*T*LN(T)
+    -19.21045E-3*T**2+1.52726E-6*T**3-3564640*T**(-1); 1999 Y
+     -16070.82+256.707037*T-45.3964*T*LN(T);  4000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ O
+$ -------------------------------------
+$  Stable (allotropic): GAS_O2
+$  Metastable:          O-Solubility on LIQUID, BCC_A2, FCC_A1
+$ ----------------------------------------------------------------------
+$
+$ DATA FOR 1/2O2<GAS>
+$   Changed for version 3.00: addition of significant figures
+ PARAM G(GAS,O2)      298.15 +2*GHSEROO#; 6000 N PURE3 !
+
+$   Changed for version 3.00: addition of significant figures
+$PARAM G(LIQUID,O)    298.15 +GHSEROO#-2648.9+31.44*T; 6000 N PURE3 !
+ PARAM G(LIQUID,O)    298.15 +GLIQOO#; 6000 N PURE3 !
+
+$   Changed for version 3.00: addition of significant figures
+$PARAM G(BCC_A2,O:VA) 298.15 +GHSEROO#+30000; 6000 N PURE3 !
+ PARAM G(FCC_A1,O:VA) 298.15 +GFCCOO#; 6000 N PURE3 !
+
+$   Changed for version 3.00: addition of significant figures
+$PARAM G(FCC_A1,O:VA) 298.15 +GHSEROO#+30000; 6000 N PURE3 !
+ PARAM G(BCC_A2,O:VA) 298.15 +GBCCOO#; 6000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Os
+$ -------------------------------------
+$  Stable (allotropic): HCP_A3 --> LIQUID 
+$  Metastable:          FCC_A1, BCC_A2
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,OS)    298.15 +GLIQOS#;  5500 N PURE3 !
+ 
+$PARAM G(FCC_A1,OS:VA) 298.15 +GHSEROS#+13000-2.5*T; 5500 N PURE3 !
+ PARAM G(FCC_A1,OS:VA) 298.15 +GFCCOS#;  5500 N PURE3 !
+ 
+$ Revised for version 4.4 of the database: 
+$   BCC  PARAM changed 22/5/2000 to make mpt of bcc about 2000 K
+$        PARAM G(BCC_A2,OS:VA) 298.15 GHSEROS+27500-4.4*T; 5500 N !
+$ 
+$PARAM G(BCC_A2,OS:VA) 298.15 +GHSEROS#+43500-9*T;   5500 N PURE3 !
+$PARAM G(BCC_A2,OS:VA) 298.15 +GHSEROS#+27500-4.4*T; 5500 N PURE4 !
+ PARAM G(BCC_A2,OS:VA) 298.15 +GBCCOS#;  5500 N PURE4 !
+ 
+ PARAM G(HCP_A3,OS:VA) 298.15 +GHSEROS#; 5500 N PURE1 !
+$ -------------------------------------
+ 
+$========================================================================
+$ P
+$ -------------------------------------
+$  Stable (allotropic): RED_P --> LIQUID
+$  Metastable:          WHITE_P, FCC_A1, BCC_A2, RHOMBOHEDRAL_A7
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,P)    250 +GLIQPP#;  3000 N PURE3 !
+ 
+ PARAM G(FCC_A1,P:VA) 250 +GFCCPP#;  3000 N PURE3 !
+
+ PARAM G(BCC_A2,P:VA) 250 +GBCCPP#;  3000 N PURE3 !
+ 
+ PARAM G(WHITE_P,P)   250 +GHSERPP#; 3000 N PURE3 !
+ 
+ PARAM G(RED_P,P)     250 +GREDPP#;  3000 N PURE3 !
+ 
+$ Introduced for version 4.4 of database:
+ PARAM G(RHOMBOHEDRAL_A7,P) 250 +GHSERPP#-188+0.12527*T; 3000 N PURE4 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Pa
+$ -------------------------------------
+$  Stable (allotropic): BCT_AA --> BCC_A2 --> LIQUID
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,PA)    298.15 +GLIQPA#;  4000 N PURE3 !
+ 
+ PARAM G(BCC_A2,PA:VA) 298.15 +GBCCPA#;  4000 N PURE3 !
+ 
+ PARAM G(BCT_AA,PA)    298.15 +GHSERPA#; 4000 N PURE1 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Pb
+$ -------------------------------------
+$   DATA FROM A T DINSDALE (UNPUBLISHED)
+$   FROM SGTE SOLDERS DATABASE (EX SGSOL)
+$ -------------------------------------
+$  Stable (allotropic): FCC_A1 --> LIQUID
+$  Metastable:          BCC_A2, HCP_A3, BCT_A5, RHOMBOHEDRAL_A7, 
+$                       RHOMBOHEDRAL_A10, TETRAGONAL_A6, TET_ALPHA1
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,PB) 298.15 
+$   +GHSERPB#+4672.124-7.750683*T-6.019E-19*T**7; 600.61 Y
+$   +GHSERPB#+4853.137-8.067136*T-8.05448E+25*T**(-9); 1200 Y
+$   +GHSERPB#+4853.137-8.067135*T-8.05448E+25*T**(-9); 2100 N PURE3 !
+ PARAM G(LIQUID,PB)    298.15 +GLIQPB#;  2100 N PURE3 !
+ 
+ PARAM G(FCC_A1,PB:VA) 298.15 +GHSERPB#; 2100 N PURE1 !
+ 
+$PARAM G(BCC_A2,PB:VA) 298.15 +GHSERPB#+2400-1.1*T; 2100 N PURE3 !
+ PARAM G(BCC_A2,PB:VA) 298.15 +GBCCPB#;  2100 N PURE3 !
+ 
+$PARAM G(HCP_A3,PB:VA) 298.15 +GHSERPB#+300+T; 2100 N PURE3 !
+ PARAM G(HCP_A3,PB:VA) 298.15 +GHCPPB#;  2100 N PURE3 !
+ 
+$PARAM G(BCT_A5,PB)    298.15 +GHSERPB#+489+3.52*T; 2100 N PURE3 !
+ PARAM G(BCT_A5,PB)    298.15 +GHSERPB#+489+3.52*T; 2100 N PURE3 !
+
+$ Revised for version 4.4 of database:
+$   Source of data:  
+$     Boa and Ansara, Thermochimica Acta 1998, 314, 79-86
+$ 
+ PARAM G(RHOMBOHEDRAL_A7,PB)  298.15 +GHSERPB#+300+1*T; 2100 N PURE4 !
+ 
+$ Introduced for version 5.0 of database:
+ PARAM G(RHOMBOHEDRAL_A10,PB) 298.15 +GHSERPB#+10;      2100 N PURE5 !
+
+$ Revised for version 4.4 of database:
+$   Source of data:  
+$     Boa and Ansara, Thermochimica Acta 1998, 314, 79-86
+$ 
+ PARAM G(TETRAGONAL_A6,PB) 298.15 +GHSERPB#+4493.235;  2100 N PURE4 !
+ 
+$ Revised for version 4.4 of database:
+$   Source of data:  
+$     Boa and Ansara, Thermochimica Acta 1998, 314, 79-86
+$ 
+ PARAM G(TET_ALPHA1,PB) 298.15 +GHSERPB#+1903.3-2.0602*T; 2100 N PURE4 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Pd
+$ -------------------------------------
+$  Stable (allotropic): FCC_A1 --> LIQUID
+$  Metastable:          BCC_A2, HCP_A3, RHOMBOHEDRAL_A7
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,PD)    298.15 
+$   +GHSERPD#+11506.758-5.112162*T; 600 Y
+$   +23405.778-116.918419*T+10.8922031*T*LN(T)-.027266568*T**2
+$    +2.430675E-06*T**3-1853674*T**(-1);  1828 Y
+$   -12373.637+251.416903*T-41.17*T*LN(T); 4000 N PURE3 !
+ PARAM G(LIQUID,PD)    298.15 +GLIQPD#;  4000 N PURE3 !
+ 
+ PARAM G(FCC_A1,PD:VA) 298.15 +GHSERPD#; 4000 N PURE1 !
+ 
+$PARAM G(BCC_A2,PD:VA) 298.15 +GHSERPD#+10500-1.8*T; 4000 N PURE3 !
+ PARAM G(BCC_A2,PD:VA) 298.15 +GBCCPD#;  4000 N PURE3 !
+ 
+$PARAM G(HCP_A3,PD:VA) 298.15 +GHSERPD#+2000+0.1*T; 4000 N PURE3 !
+ PARAM G(HCP_A3,PD:VA) 298.15 +GHCPPD#;  4000 N PURE3 !
+
+$ Introduced for version 5.0 of database:
+ PARAM G(RHOMBOHEDRAL_A7,PD) 298.15 +GHSERPD#+4000; 4000 N PURE5 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Pm
+$ -------------------------------------
+$ Introduced since version 4.1 of the PURE database:
+$     Soure of data: SGTE Substance Database (SSUB4)
+$ -------------------------------------
+$  Stable (allotropic): PM_S --> PM_S2 --> LIQUID/PM_L 
+$  Metastable:          Pm-Solubility in GAS
+$ ----------------------------------------------------------------------
+$ 
+ PARAM G(PM_S,PM)  298.15 +GHSERPM#;  6000 N PURE4 !
+
+ PARAM G(PM_S2,PM) 298.15 +GHSERPM#+3200-2.75150473*T;  6000 N PURE4 !
+
+$           merged into LIQUID in PURE5 /PF-2010
+$PARAM G(PM_L,PM)   298.15 +GHSERPM#+10900-8.60701804*T; 6000 N PURE4 !
+ PARAM G(LIQUID,PM) 298.15 +GHSERPM#+10900-8.60701804*T; 6000 N PURE4 !
+
+ PARAM G(GAS,PM)    298.15 +GGASPM1#+RTLNP#; 10000 N PURE4 !
+$ -------------------------------------
+
+$========================================================================
+$ Po
+$ -------------------------------------
+$ Introduced since version 4.1 of the PURE database:
+$     Soure of data: SGTE Substance Database (SSUB4)
+$ -------------------------------------
+$  Stable (allotropic): PO_S --> LIQUID/PO_L 
+$  Metastable:          Po-Solubility in GAS
+$ ----------------------------------------------------------------------
+$ 
+ PARAM G(PO_S,PO) 298.15 +GHSERPO#; 6000 N PURE4 !
+
+$           merged into LIQUID in PURE5 /PF-2010
+$PARAM G(PO_L,PO)   298.15 +GHSERPO#+10000-18.9753321*T; 6000 N PURE4 !
+ PARAM G(LIQUID,PO) 298.15 +GHSERPO#+10000-18.9753321*T; 6000 N PURE4 !
+
+ PARAM G(GAS,PO)  298.15 +GGASPO1#+RTLNP#; 6000 N PURE4 !
+$ -------------------------------------
+
+$========================================================================
+$ Pr
+$ -------------------------------------
+$  Stable (allotropic): DHCP --> BCC_A2 --> LIQUID 
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,PR)    298.15 +GLIQPR#;  3800 N PURE3 !
+ 
+ PARAM G(BCC_A2,PR:VA) 298.15 +GBCCPR#;  3800 N PURE3 !
+ 
+ PARAM G(DHCP,PR)      298.15 +GHSERPR#; 3800 N PURE1 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Pt
+$ -------------------------------------
+$  Stable (allotropic): FCC_A1 --> LIQUID
+$  Metastable:          BCC_A2, HCP_A3
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,PT)    298.15 
+$   +GHSERPT#+20114.016-9.275183*T; 600 Y
+$   +19023.491+32.94182*T-12.3403769*T*LN(T)-.011551507*T**2
+$    +9.31516E-07*T**3-601426*T**(-1); 2041.50 Y
+$   +1404.468+205.858962*T-36.5*T*LN(T); 4000 N PURE3 !
+ PARAM G(LIQUID,PT)    298.15 +GLIQPT#;  4000 N PURE4 !
+ 
+ PARAM G(FCC_A1,PT:VA) 298.15 +GHSERPT#; 4000 N PURE1 !
+ 
+$PARAM G(BCC_A2,PT:VA) 298.15 +GHSERPT#+15000-2.4*T; 4000 N PURE3 !
+ PARAM G(BCC_A2,PT:VA) 298.15 +GBCCPT#;  4000 N PURE4 !
+ 
+$PARAM G(HCP_A3,PT:VA) 298.15 +GHSERPT#+2500+0.1*T;  4000 N PURE3 !
+ PARAM G(HCP_A3,PT:VA) 298.15 +GHCPPT#;  4000 N PURE4 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Pu
+$ -------------------------------------
+$  Stable (allotropic): ALPHA_PU --> ETA_PU --> GAMMA_PU --> FCC_A1-->
+$                           TETRAGONAL_A6 --> BCC_A2 --> LIQUID
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,PU)    298.15 +GHSERPU#+6608.1-12.5133*T; 3000 N PURE3 !
+ PARAM G(LIQUID,PU)    298.15 +GLIQPU#;  3000 N PURE3 !
+ 
+ PARAM G(FCC_A1,PU:VA) 298.15 +GFCCPU#;  3000 N PURE3 !
+ 
+ PARAM G(BCC_A2,PU:VA) 298.15 +GBCCPU#;  3000 N PURE3 !
+ 
+ PARAM G(ALPHA_PU,PU)  298.15 +GHSERPU#; 3000 N PURE1 !
+ 
+ PARAM G(BETA_PU,PU)   298.15 -4873.654+123.249151*T-27.416*T*LN(T)
+    -6.53E-3*T**2;   679.50 Y
+     +2435.094+43.566585*T-15.7351*T*LN(T)
+    -15.4772E-3*T**2+1.524942E-6*T**3-864940*T**(-1); 1464 Y
+     -13959.062+228.221615*T-42.248*T*LN(T);  3000 N PURE3 !
+ 
+ PARAM G(GAMMA_PU,PU)  298.15 -16766.303+419.402655*T-77.5802*T*LN(T)
+    +81.6415E-3*T**2-28.103833E-6*T**3+574825*T**(-1);     487.90 Y
+     -2942.77+88.325069*T-22.0233*T*LN(T)-11.4795E-3*T**2; 593.90 Y
+     -9336.967+160.314641*T-32.3405*T*LN(T)
+    -7.0383E-3*T**2+0.692887E-6*T**3+630600*T**(-1);      1179 Y
+     -12435.75+226.131617*T-42.248*T*LN(T);  3000 N PURE3 !
+ 
+ PARAM G(TETRAGONAL_A6,PU) 298.15 -496.178+54.586547*T-16.43*T*LN(T)
+    -24.006E-3*T**2+5.166667E-6*T**3-158470*T**(-1);   736 Y
+     -6122.307+173.35008*T-35.56*T*LN(T);              757 Y
+     +3982.078+63.890352*T-19.756*T*LN(T)
+    -9.37295E-3*T**2+0.659882E-6*T**3-1112565*T**(-1); 2157 Y
+     -15200.539+228.05641*T-42.248*T*LN(T);  3000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Ra
+$ -------------------------------------$
+$ Introduced since version 4.1 of the PURE database:
+$     Soure of data: SGTE Substance Database (SSUB4)
+$ -------------------------------------
+$  Stable (allotropic): RA_S --> LIQUID/RA_L
+$  Metastable:          GAS_Ra
+$ ----------------------------------------------------------------------
+$ 
+$ Note: An error occured in PURE4.4: GHSERRA was called GHSERRB. 
+$       This has been corrected in PUR4.5
+ PARAM G(RA_S,RA)   298.15 +GHSERRA#; 6000 N PURE4 !
+
+$           merged into LIQUID in PURE5 /PF-2010
+$PARAM G(RA_L,RA)   298.15 +GHSERRA#+7700-7.94633643*T; 6000 N PURE4 !
+ PARAM G(LIQUID,RA) 298.15 +GHSERRA#+7700-7.94633643*T; 6000 N PURE4 !
+
+ PARAM G(GAS,RA)  298.15 +GGASRA1#+RTLNP#; 6000 N PURE4 !
+$ -------------------------------------
+
+$========================================================================
+$ Rb
+$ -------------------------------------
+$  Stable (allotropic): BCC_A2 --> LIQUID
+$  Metastable:          FCC_A1, HCP_A3
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,RB) 200.00 
+$   +GHSERRB#+2217.552-7.110486*T+1.44078E-17*T**7;  312.46 Y
+$   +GHSERRB#+2172.865-6.960316*T+5.55029E+22*T**(-9);  900 Y
+$   +GHSERRB#+2172.866-6.960316*T+5.55029E+22*T**(-9); 1600 Y
+$   +GHSERRB#+2172.865-6.960315*T+5.55029E+22*T**(-9); 2100 N PURE3 !
+ PARAM G(LIQUID,RB)    200 +GLIQRB#;  2100 N PURE3 !
+ 
+$PARAM G(FCC_A1,RB:VA) 200 +GHSERRB#+200+1.3*T; 2100 N PURE3 !
+ PARAM G(FCC_A1,RB:VA) 200 +GFCCRB#;  2100 N PURE3 !
+ 
+ PARAM G(BCC_A2,RB:VA) 200 +GHSERRB#; 2100 N PURE1 !
+ 
+$PARAM G(HCP_A3,RB:VA) 200 +GHSERRB#+200+2*T; 2100 N PURE3 !
+ PARAM G(HCP_A3,RB:VA) 200 +GHCPRB#;  2100 N PURE3 !
+$ -------------------------------------
+
+$========================================================================
+$ Re
+$ -------------------------------------
+$  Stable (allotropic): HCP_A3 --> LIQUID
+$  Metastable:          FCC_A1, BCC_A2 
+$ ----------------------------------------------------------------------
+$
+$   Data from John Arblaster, To be published, CALPHAD, 1996, 20(3)
+$
+ PARAM G(LIQUID,RE)    298.15 +GLIQRE#;  6000 N PURE3 !
+
+$PARAM G(FCC_A1,RE:VA) 298.15 +GHSERRE#+11000-1.5*T; 6000 N PURE3 !
+ PARAM G(FCC_A1,RE:VA) 298.15 +GFCCRE#;  6000 N PURE3 !
+
+$ Revised for version 4.4 of database:
+$PARAM G(BCC_A2,RE:VA) 298.15 +GHSERRE#+29200-6*T; 6000 N PURE3 !
+ PARAM G(BCC_A2,RE:VA) 298.15 +GBCCRE#;  6000 N PURE4 !
+ 
+$ Revised for version 3.0 of database:
+$   Data from John Arblaster, To be published, CALPHAD, 1996, 20(3)
+$
+ PARAM G(HCP_A3,RE:VA) 298.15 +GHSERRE#; 6000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Rh
+$ -------------------------------------
+$  Stable (allotropic): FCC_A1 --> LIQUID
+$  Metastable:          BCC_A2, HCP_A3
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,RH)    298.15 
+$   +GHSERRH#+19092.91-6.92133*T; 700 Y
+$   +35898.508-147.926418*T+15.6492377*T*LN(T)-.028665357*T**2
+$    +2.100572E-06*T**3-2638940*T**(-1);  2237 Y
+$   -18208.54+332.974832*T-50.58456*T*LN(T);  2450 Y
+$   +GHSERRH#+26654.949-11.915063*T;     2500 N PURE3 !
+ PARAM G(LIQUID,RH)    298.15 +GLIQRH#;  2500 N PURE3 !
+ 
+ PARAM G(FCC_A1,RH:VA) 298.15 +GHSERRH#; 2500 N PURE1 !
+ 
+$PARAM G(BCC_A2,RH:VA) 298.15 +GHSERRH#+19000-4.7*T; 2500 N PURE3 !
+ PARAM G(BCC_A2,RH:VA) 298.15 +GBCCRH#;  2500 N PURE3 !
+ 
+$PARAM G(HCP_A3,RH:VA) 298.15 +GHSERRH#+3000-0.5*T; 2500 N PURE3 !
+ PARAM G(HCP_A3,RH:VA) 298.15 +GHCPRH#;  2500 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Rn
+$ -------------------------------------
+$ Introduced since version 4.1 of the PURE database:
+$     Soure of data: SGTE Substance Database (SSUB4)
+$ -------------------------------------
+$  Stable (allotropic): GAS_Rn
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$ 
+ PARAM G(GAS,RN) 298.15 +GHSERRN#+RTLNP#; 20000.00 N PURE4 !
+$ -------------------------------------
+
+$========================================================================
+$ Ru
+$ -------------------------------------
+$ DATA FROM JOHN ARBLASTER, published CALPHAD, 1996, 20(3)
+$ -------------------------------------
+$  Stable (allotropic): HCP_A3 --> LIQUID
+$  Metastable:          FCC_A1, BCC_A2
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,RU)    298.15 +GLIQRU#;  4500 N PURE3 !
+ 
+$PARAM G(FCC_A1,RU:VA) 298.15 +GHSERRU#+12500-2.4*T; 4500 N PURE3 !
+ PARAM G(FCC_A1,RU:VA) 298.15 +GFCCRU#;  4500 N PURE3 !
+ 
+$ Revised for version 4.4 of database:
+$   Source of data:  
+$     
+$     PARAM revised 22/5/2000 to make mpt of BCC_A2 about 1600 K
+$     PARAM G(BCC_A2,RU:VA) 298.15 +GHSERRU+21500-5.05*T; 4500 N !
+$ 
+$PARAM G(BCC_A2,RU:VA) 298.15 +GHSERRU#+26500-6.2*T;  4500 N PURE3 !
+$PARAM G(BCC_A2,RU:VA) 298.15 +GHSERRU#+21500-5.05*T; 4500 N PURE4 !
+ PARAM G(BCC_A2,RU:VA) 298.15 +GBCCRU#;  4500 N PURE4 !
+ 
+ PARAM G(HCP_A3,RU:VA) 298.15 +GHSERRU#; 4500 N PURE1 !
+$ -------------------------------------
+ 
+$========================================================================
+$ S
+$ -------------------------------------
+$  Stable (allotropic): ORTHORHOMBIC_S --> MONOCLINIC --> LIQUID
+$  Metastable:          FCC_A1, BCC_A2, GAS_S
+$ ----------------------------------------------------------------------
+$
+$ Revised for version 4.4 of database:
+ PARAM G(LIQUID,S)     298.15 +GLIQSS#;  1301 N PURE4 !
+
+$ Recommended by Bosse Sundman:
+$PARAM G(FCC_A1,S:VA)  298.15 +GHSERSS#+105000; 1300 N PURE3 !
+ PARAM G(FCC_A1,S:VA)  298.15 +GFCCSS#;  1301 N PURE4 !
+
+$ Recommended by Bosse Sundman:
+$PARAM G(BCC_A2,S:VA)  298.15 +GHSERSS#+105000; 1300 N PURE3 !
+ PARAM G(BCC_A2,S:VA)  298.15 +GBCCSS#;  1301 N PURE4 !
+ 
+$ Recommended by Bosse Sundman:
+$   Phase name changed for version 3 of database to ORTHORHOMBIC_S
+$ Revised for version 4.4 of database:
+ PARAM G(ORTHORHOMBIC_S,S) 298.15 +GHSERSS#; 1301 N PURE4 !
+ 
+$ Revised for version 4.4 of database:
+$PARAM G(MONOCLINIC,S)  298.15 -5701.485+89.000772*T-17.318*T*LN(T)
+$  -.0101215*T**2;  388.36 Y
+$   -7435.888+114.512564*T-21.1094347*T*LN(T)
+$  -.008604142*T**2+1.118079E-06*T**3+120740*T**(-1); 1300 N PURE3 !
+ PARAM G(MONOCLINIC,S) 298.15 -5725.422+89.544275*T-17.413*T*LN(T)
+    -9.93935E-3*T**2-0.070062E-6*T**3+1250*T**(-1); 388.36 Y
+     -7455.008+114.782945*T-21.1531404*T*LN(T)
+    -8.566163E-3*T**2+1.112484E-6*T**3+122167*T**(-1); 1300 Y
+     -11779.415+186.699065*T-32*T*LN(T); 1301 N PURE4 !
+
+$ Introduced for version 4.4 of database:
+$   Source of data:  
+$     SGTE Substances Database (1996)
+$ 
+ PARAM G(GAS,S2) 298.15 +GGASS2#+RTLNP#; 6000.00 N PURE4 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Sb
+$ -------------------------------------
+$  Stable (allotropic): RHOMBOHEDRAL_A7 --> LIQUID 
+$  Metastable:          FCC_A1, BCC_A2, HCP_A3
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,SB)    298.15 +GLIQSB#; 2000 N PURE3 !
+ 
+$PARAM G(FCC_A1,SB:VA) 298.15 +GHSERSB#+19874-13.7*T; 2000 N PURE3 !
+ PARAM G(FCC_A1,SB:VA) 298.15 +GFCCSB#; 2000 N PURE3 !
+ 
+$PARAM G(BCC_A2,SB:VA) 298.15 +GHSERSB#+19874-15.1*T; 2000 N PURE3 !
+ PARAM G(BCC_A2,SB:VA) 298.15 +GBCCSB#; 2000 N PURE3 !
+ 
+$PARAM G(HCP_A3,SB:VA) 298.15 +GHSERSB#+19874-13*T;   2000 N PURE3 !
+ PARAM G(HCP_A3,SB:VA) 298.15 +GHCPSB#; 2000 N PURE3 !
+ 
+$ Revised data for Sb bct_a5 from A T Dinsdale 
+$  for version 3.00 of database
+$
+ PARAM G(BCT_A5,SB)    298.15 +GHSERSB#+13000-8*T; 2000 N PURE3 !
+ 
+ PARAM G(RHOMBOHEDRAL_A7,SB) 298.15 +GHSERSB#; 2000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Sc
+$ -------------------------------------
+$  Stable (allotropic): HCP_A3 --> BCC_A2 --> LIQUID
+$  Metastable:          FCC_A1, DHCP 
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,SC) 298.15
+$   +6478.66+45.427539*T-10.7967803*T*LN(T)
+$    -.020636524*T**2+2.13106E-06*T**3-158106*T**(-1);  1608 Y
+$   -11832.111+275.871695*T-44.2249*T*LN(T); 2000 Y
+$   +GHSERSC#+18683.135-10.602643*T;  3200 N PURE3 !
+ PARAM G(LIQUID,SC)    298.15 +GLIQSC#;  3200 N PURE4 !
+
+$ Introduced for version 4.4 of database:
+$   Source of data:  
+$     Cacciamani G; Riani P; Borzone G; Parodi N; Saccone A; Ferro R;
+$     Pisch A; Schmid-Fetzer R;
+$       Intermetallics, 7 (1), 101-108 (1999).
+$       Thermodynamic measurements and assessment of the Al-Sc system.
+$ 
+ PARAM G(FCC_A1,SC:VA) 298.15 +GFCCSC#;  3200 N PURE4 !
+
+$PARAM G(BCC_A2,SC:VA) 298.15 
+$   +GHSERSC#+1979.728-1.024135*T; 1000 Y
+$   +230161.408-2004.05469*T+276.76664*T*LN(T)
+$    -.167120107*T**2+1.5637371E-05*T**3-33783257*T**(-1); 1608 Y
+$   -25928.011+283.642312*T-44.2249*T*LN(T);  2000 Y
+$   +GHSERSC#+4587.235-2.832026*T;       3200 N PURE3 !
+ PARAM G(BCC_A2,SC:VA) 298.15 +GBCCSC#;  3200 N PURE4 !
+ 
+ PARAM G(HCP_A3,SC:VA) 298.15 +GHSERSC#; 3200 N PURE1 !
+ 
+$ Introduced for version 4.4 of database:
+$   Source of data:  
+$     Susanne Norgren, Thesis, KTH 2000
+$ 
+ PARAM G(DHCP,SC) 298.15 +GHSERSC#+1200+0.415725*T; 3200 N PURE4 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Se
+$ -------------------------------------
+$  Stable (allotropic): HEXAGONAL_A8 --> LIQUID
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,SE) 298.15 
+$   +50533.347-1178.28824*T+194.107439*T*LN(T)
+$    -.390268991*T**2+1.19219297E-04*T**3-2224398*T**(-1); 494 Y
+$   -5228.304+183.72559*T-35.1456*T*LN(T); 800 Y
+$   +GHSERSE#+6965.166-14.044576*T;  1000 N PURE3 !
+ PARAM G(LIQUID,SE)       298.15 +GLIQSE#;  1000 N PURE4 !
+ 
+ PARAM G(HEXAGONAL_A8,SE) 298.15 +GHSERSE#; 1000 N PURE1 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Si
+$ -------------------------------------
+$  Stable (allotropic): DIAMOND_A4 --> LIQUID
+$  Metastable:          FCC_A1, BCC_A2, HCP_A3/HCP_ZN, 
+$                       CBCC_A12, CUB_A13
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,SI)     298.15 +GLIQSI#; 3600 N PURE3 !
+ 
+$PARAM G(FCC_A1,SI:VA)  298.15 +GHSERSI#+51000-21.8*T; 3600 N PURE3 !
+ PARAM G(FCC_A1,SI:VA)  298.15 +GFCCSI#; 3600 N PURE3 !
+ 
+$PARAM G(BCC_A2,SI:VA)  298.15 +GHSERSI#+47000-22.5*T; 3600 N PURE3 !
+ PARAM G(BCC_A2,SI:VA)  298.15 +GBCCSI#; 3600 N PURE3 !
+ 
+$PARAM G(HCP_A3,SI:VA)  298.15 +GHSERSI#+49200-20.8*T; 3600 N PURE3 !
+ PARAM G(HCP_A3,SI:VA)  298.15 +GHCPSI#; 3600 N PURE3 !
+
+$ Introduced in version 4.4 of database:
+ PARAM G(HCP_ZN,SI:VA)  298.15 +GHSERSI#+49201-20.8*T; 3600 N PURE4 !
+ 
+ PARAM G(DIAMOND_A4,SI) 298.15 +GHSERSI#; 3600 N PURE1 !
+ 
+ PARAM G(CBCC_A12,SI:VA) 298.15 +GHSERSI#+50208-20.377*T; 3600 N PURE3 !
+ 
+ PARAM G(CUB_A13,SI:VA)  298.15 +GHSERSI#+47279-20.377*T; 3600 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Sm
+$ -------------------------------------
+$  Stable (allotropic): RHOMBOHEDRAL_C19-->HCP_A3-->BCC_A2-->LIQUID
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,SM)    298.15 +GLIQSM#;  2100 N PURE3 !
+ 
+ PARAM G(BCC_A2,SM:VA) 298.15 +GBCCSM#;  2100 N PURE3 !
+ 
+$ Introduced for version 4.4 of database:
+$   Source of data:  
+$     Xuping Su, Weijing Zhang and Zhenmin Du
+$       J. Alloys and Compounds 1998, 278, 182-4
+$  
+ PARAM G(HCP_A3,SM:VA) 298.15 +GHCPSM#;  2100 N PURE4 !
+ 
+$PHASE RHOMB had already been changed to RHOMB_C19  in PURE4 /PF-2002
+$            is further changed to RHOMBOHEDRAL_C19 in PURE5 /PF-2010
+ PARAM G(RHOMBOHEDRAL_C19,SM) 298.15 +GHSERSM#; 2100 N PURE1 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Sn
+$ -------------------------------------
+$  Stable (allotropic): DIAMOND_A4 --> BCT_A5 --> LIQUID
+$  Metastable:          FCC_A1, BCC_A3, HCP_A3/HCP_ZN, DHCP, 
+$                       RHOMBOHEDRAL_A7, TETRAGONAL_A6, TET_ALPHA1, 
+$                       CBCC_A12, CUB_A13
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,SN)    100 
+$   +GHSERSN#+7103.092-14.087767*T+1.47031E-18*T**7;    505.08 Y
+$   +GHSERSN#+6971.586-13.814383*T+1.2307E+25*T**(-9);  800 Y
+$   -1285.372+125.182498*T-28.4512*T*LN(T); 3000 N PURE3 !
+ PARAM G(LIQUID,SN)    100 +GLIQSN#;  3000 N PURE3 !
+ 
+$ Data from Fecht et al. Metall. Trans. A, 1989, 20A, 795-803
+$ Data changed in version 3 of database
+$ 
+$PARAM G(FCC_A1,SN:VA) 100 -345.135+56.983315*T-15.961*T*LN(T)
+$    -.0188702*T**2+3.121167E-06*T**3-61960*T**(-1);  250 Y
+$   +GHSERSN#+5510-8.46*T; 3000 N PURE3 !
+ PARAM G(FCC_A1,SN:VA) 100 +GFCCSN#;  3000 N PURE3 !
+  
+$PARAM G(BCC_A2,SN:VA) 100 +GHSERSN#+4400-6*T; 3000 N PURE3 !
+ PARAM G(BCC_A2,SN:VA) 100 +GBCCSN#;  3000 N PURE3 !
+
+$ Revised for version 4.4 of database:
+$   Source of data:  
+$     Unpublished work - Himo Ansara
+$ 
+$PARAM G(HCP_A3,SN:VA) 100 +GHSERSN#+3900-4.4*T; 3000 N PURE3 !
+ PARAM G(HCP_A3,SN:VA) 100 +GHCPSN#;  3000 N PURE4 !
+ 
+$ Introduced for version 4.4 of database:
+$   Source of data:  
+$     Unpublished work - Himo Ansara
+$    
+ PARAM G(HCP_ZN,SN:VA) 100 +GHSERSN#+3905-7.646*T; 3000 N PURE4 !
+
+$ Introduced for version 5.0 of database:
+$   Liu HS; Liu CL; Ishida K; Jin ZP; 
+$       J. Electron. Mater. 2033, 32, 1290.
+$ 
+ PARAM G(DHCP,SN)      100 +GHSERSN#+3803.52-3.46*T; 3000 N PURE5 !
+ 
+ PARAM G(DIAMOND_A4,SN) 100 -9579.608+114.007785*T-22.972*T*LN(T)
+    -8.13975E-3*T**2+2.7288E-6*T**3+25615*T**(-1);   298.15 Y
+     -9063.001+104.84654*T-21.5750771*T*LN(T)
+    -8.575282E-3*T**2+1.784447E-6*T**3-2544*T**(-1); 800 Y
+     -10909.353+147.396537*T-28.4512*T*LN(T);  3000 N PURE3 !
+ 
+ PARAM G(BCT_A5,SN)    100 +GHSERSN#; 3000 N PURE1 !
+ 
+ PARAM G(RHOMBOHEDRAL_A7,SN) 100 +GHSERSN#+2035; 3000 N PURE3 !
+ 
+$ Introduced for version 4.4 of database:
+$   Source of data: 
+$     Unpublished assessment of the In-Sn system by Himo Ansara 
+$ 
+ PARAM G(TETRAGONAL_A6,SN) 100 +GHSERSN#+5387-8.26212*T; 3000 N PURE4 !
+
+$ Introduced for version 5.0 of database:
+$   From unpublished assessment of In-Sn system by Himo Ansara. 
+$   The tet_alpha1 and InSn_beta phases are the same
+ PARAM G(TET_ALPHA1,SN)  100 +GHSERSN#+5510-8.46*T; 3000 N PURE4 !
+
+$ Introduced for version 4.4 of database:
+$   Source of data: 
+$     J Miettinen, CALPHAD to be published
+$ 
+ PARAM G(CBCC_A12,SN:VA) 100 +GHSERSN#+2000; 3000 N PURE4 !
+
+$ Introduced for version 4.4 of database:
+$   Source of data: 
+$     J Miettinen, CALPHAD to be published
+$ 
+ PARAM G(CUB_A13,SN:VA)  100 +GHSERSN#+2000; 3000 N PURE4 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Sr
+$ -------------------------------------
+$  Stable (allotropic): FCC_A1 --> BCC_A2 --> LIQUID 
+$  Metastable:          HCP_A3
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,SR)    298.15 +GLIQSR#;  3000 N PURE3 !
+ 
+ PARAM G(FCC_A1,SR:VA) 298.15 +GHSERSR#; 3000 N PURE1 !
+ 
+ PARAM G(BCC_A2,SR:VA) 298.15 +GBCCSR#;  3000 N PURE3 !
+ 
+$PARAM G(HCP_A3,SR:VA) 298.15 +GHSERSR#+250+0.7*T; 3000 N PURE3 !
+ PARAM G(HCP_A3,SR:VA) 298.15 +GHCPSR#;  3000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ T     (TRITIUM)
+$ -------------------------------------
+$ Introduced for version 4.1 of database:
+$     Soure of data: SGTE Substance Database (SSUB4)
+$ -------------------------------------
+$  Stable (allotropic): GAS_T3
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$ 
+ PARAM G(GAS,T)  298.15 +GHSERT1#+RTLNP#;     20000 N PURE4 !
+
+ PARAM G(GAS,T2) 298.15 +GHSERT2#+RTLNP#;     20000 N PURE4 !
+
+ PARAM G(GAS,T3) 298.15 +1.5*GHSERT2#+RTLNP#; 20000 N PURE4 !
+$ -------------------------------------
+
+$========================================================================
+$ Ta
+$ -------------------------------------
+$  Stable (allotropic): BCC_A2 --> LIQUID
+$  Metastable:          FCC_A1, HCP_A3
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,TA) 298.15 
+$   +GHSERTA#+29160.975-7.578729*T; 1000 Y
+$   +43884.339-61.981795*T+.0279523*T*LN(T)-.012330066*T**2
+$    +6.14599E-07*T**3-3523338*T**(-1);  3290 Y
+$   -6314.543+258.110873*T-41.84*T*LN(T); 6000 N PURE3 !
+ PARAM G(LIQUID,TA)    298.15 +GLIQTA#;  6000 N PURE3 !
+ 
+$PARAM G(FCC_A1,TA:VA) 298.15 +GHSERTA#+16000+1.7*T; 6000 N PURE3 !
+ PARAM G(FCC_A1,TA:VA) 298.15 +GFCCTA#;  6000 N PURE3 !
+ 
+ PARAM G(BCC_A2,TA:VA) 298.15 +GHSERTA#; 6000 N PURE1 !
+ 
+$PARAM G(HCP_A3,TA:VA) 298.15 +GHSERTA#+12000+2.4*T; 6000 N PURE3 !
+ PARAM G(HCP_A3,TA:VA) 298.15 +GHCPTA#;  6000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Tb
+$ -------------------------------------
+$  Stable (allotropic): HCP_A3 --> BCC_A2 --> LIQUID
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,TB)    298.15 +GLIQTB#;  3000 N PURE3 !
+ 
+ PARAM G(BCC_A2,TB:VA) 298.15 +GBCCTB#;  3000 N PURE3 !
+ 
+ PARAM G(HCP_A3,TB:VA) 298.15 +GHSERTB#; 3000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Tc
+$ -------------------------------------
+$  Stable (allotropic): HCP_A3 --> LIQUID 
+$  Metastable:          FCC_A1, BCC_A2
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,TC)    298.15 +GLIQTC#;  4000 N PURE3 !
+ 
+$PARAM G(FCC_A1,TC:VA) 298.15 +GHSERTC#+10000-1.5*T; 4000 N PURE3 !
+ PARAM G(FCC_A1,TC:VA) 298.15 +GFCCTC#;  4000 N PURE3 !
+ 
+$PARAM G(BCC_A2,TC:VA) 298.15 +GHSERTC#+18000-4.5*T; 4000 N PURE3 !
+ PARAM G(BCC_A2,TC:VA) 298.15 +GBCCTC#;  4000 N PURE3 !
+ 
+ PARAM G(HCP_A3,TC:VA) 298.15 +GHSERTC#; 4000 N PURE1 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Te
+$ -------------------------------------
+$ General for version 3.0 of the database: 
+$   Data for Te based on published values by Davydov, Rand and Argent
+$   CALPHAD, 1995, 19(3), 375
+$   Data changed for version 3.00 of database
+$ -------------------------------------
+$  Stable (allotropic): HEXAGONAL_A8 --> LIQUID
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,TE)       298.15 +GLIQTE#;  1600 N PURE3 !
+ 
+ PARAM G(HEXAGONAL_A8,TE) 298.15 +GHSERTE#; 1600 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Th
+$ -------------------------------------
+$ General for version 3.0 of the database: 
+$   Data for Te based on published values by Davydov, Rand and Argent
+$   CALPHAD, 1995, 19(3), 375
+$   Data changed for version 3.00 of database
+$ -------------------------------------
+$  Stable (allotropic): FCC_A1 --> BCC_A2 --> LIQUID 
+$  Metastable:          None 
+$ ----------------------------------------------------------------------
+$
+$ Revised for version 4.4 of database:
+ PARAM G(LIQUID,TH)    298.15 +GLIQTH#;  4000 N PURE4 !
+ 
+$ Revised for version 4.4 of database:
+ PARAM G(FCC_A1,TH:VA) 298.15 +GHSERTH#; 4000 N PURE4 !
+ 
+$ Revised for version 4.4 of database:
+ PARAM G(BCC_A2,TH:VA) 298.15 +GBCCTH#;  4000 N PURE4 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Ti
+$ -------------------------------------
+$  Stable (allotropic): HCP_A3 --> BCC_A2 --> LIQUID 
+$  Metastable:          FCC_A1, DIAMOND_A4, BCT_A5, CBCC_A12, CUB_A13
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,TI)   298.15 
+$   +GHSERTI#+12194.415-6.980938*T; 900 Y
+$   +GHSERTI#+12194.416-6.980938*T;  1300 Y
+$   +369519.198-2554.0225*T+342.059267*T*LN(T)-.163409355*T**2
+$    +1.2457117E-05*T**3-67034516*T**(-1);  1941 Y
+$   -19887.066+298.7367*T-46.29*T*LN(T); 4000 N PURE3 !
+ PARAM G(LIQUID,TI)    298.15 +GLIQTI#;  4000 N PURE4 !
+ 
+$PARAM G(FCC_A1,TI:VA) 298.15 +GHSERTI#+6000-0.1*T; 4000 N PURE3 !
+ PARAM G(FCC_A1,TI:VA) 298.15 +GFCCTI#;  4000 N PURE3 !
+ 
+ PARAM G(BCC_A2,TI:VA) 298.15 +GBCCTI#;  4000 N PURE3 !
+ 
+ PARAM G(HCP_A3,TI:VA) 298.15 +GHSERTI#; 4000 N PURE1 !
+ 
+ PARAM G(DIAMOND_A4,TI)  298.15 +GHSERTI#+25000;  4000 N PURE3 !
+
+$ Data from COST507 database
+ PARAM G(BCT_A5,TI)      298.15 +GHSERTI#+4602.2; 3000 N PURE3 !
+ 
+ PARAM G(CBCC_A12,TI:VA) 298.15 +GHSERTI#+4602.2; 4000 N PURE3 !
+ 
+ PARAM G(CUB_A13,TI:VA)  298.15 +GHSERTI#+7531.2; 4000 N PURE3 !
+
+$ The LAVES_C15 phase (avialble in PURE3) is kept here: 
+$ 
+ PARAM G(LAVES_C15,TI:TI) 298.15 -9179.763+400.845624*T-71.9799*T*LN(T)
+         -0.014333925*T**2+3.20148E-07*T**3+217908*T**(-1);  
+    900.00 Y -8435.445+398.964204*T-71.9661*T*LN(T)
+         -0.0126099*T**2-2.72628E-07*T**3+128040*T**(-1);  
+   1155.00 Y +17726.511+200.929614*T-44.8398*T*LN(T)
+         -0.0244395*T**2+6.08145E-07*T**3-4432980*T**(-1);  
+   1941.00 Y -358580.358+1916.42061*T-261.654738*T*LN(T)
+         +0.024614547*T**2-9.14241E-07*T**3+1.10099415E+08*T**(-1);  
+   4000.00 N PURE3 !
+
+$ The LAVES_C14 phase (avialble in PURE3) is kept here: 
+$ 
+ PARAM G(LAVES_C14,TI:TI) 298.15 -9179.763+400.845624*T-71.9799*T*LN(T)
+         -0.014333925*T**2+3.20148E-07*T**3+217908*T**(-1);  
+    900.00 Y -8435.445+398.964204*T-71.9661*T*LN(T)
+         -0.0126099*T**2-2.72628E-07*T**3+128040*T**(-1);  
+   1155.00 Y +17726.511+200.929614*T-44.8398*T*LN(T)
+         -0.0244395*T**2+6.08145E-07*T**3-4432980*T**(-1);  
+   1941.00 Y -358580.358+1916.42061*T-261.654738*T*LN(T)
+         +0.024614547*T**2-9.14241E-07*T**3+1.10099415E+08*T**(-1);  
+   4000.00 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Tl
+$ -------------------------------------
+$  DATA FROM COST507 DATABASE
+$ -------------------------------------
+$  Stable (allotropic): HCP_A3 --> BCC_A2 --> LIQUID
+$  Metastable:          FCC_A1
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,TL)    200 +GLIQTL#;  1801 N PURE3 !
+ 
+$PARAM G(FCC_A1,TL:VA) 200 +GHSERTL#+310; 1800 N PURE3 !
+ PARAM G(FCC_A1,TL:VA) 200 +GFCCTL#;  1801 N PURE3 !
+
+ PARAM G(BCC_A2,TL:VA) 200 +GBCCTL#;  1801 N PURE3 !
+ 
+ PARAM G(HCP_A3,TL:VA) 200 +GHSERTL#; 1801 N PURE1 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Tm
+$ -------------------------------------
+$  Stable (allotropic): HCP_A3 --> LIQUID
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,TM)    298.15 
+$   +GHSERTM#+13199.249-6.557671*T; 600 Y
+$   +22640.028-126.738485*T+6.8744933*T*LN(T)-.025487085*T**2
+$    +2.288172E-06*T**3-1585412*T**(-1);  1818 Y
+$   -10090.305+214.184413*T-41.37976*T*LN(T); 2300 N PURE3 !
+ PARAM G(LIQUID,TM)    298.15 +GLIQTM#;  2300 N PURE3 !
+ 
+ PARAM G(HCP_A3,TM:VA) 298.15 +GHSERTM#; 2300 N PURE1 !
+$ -------------------------------------
+ 
+$========================================================================
+$ U
+$ -------------------------------------
+$  Stable (allotropic): ORTHORHOMBIC_A20-->TETRAGONAL_U-->BCC_A2-->LIQUID
+$  Metastable:          FCC_A1, HCP_A3
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,U)    298.15 +GHSERUU#+12355.5-10.3239*T; 3000 N PURE3 !
+ PARAM G(LIQUID,U)    298.15 +GLIQUU#;  3000 N PURE3 !
+
+$ Introduced for version 4.4 of database:
+$   Source of data:  
+$     
+ PARAM G(FCC_A1,U:VA) 298.15 +GFCCUU#;  3000 N PURE4 !
+ 
+ PARAM G(BCC_A2,U:VA) 298.15 +GBCCUU#;  3000 N PURE3 !
+ 
+$ Introduced for version 4.4 of database:
+$   Source of data:  
+$     
+ PARAM G(HCP_A3,U:VA) 298.15 +GHCPUU#;  2500 N PURE4 !
+
+ PARAM G(ORTHORHOMBIC_A20,U) 298.15 +GHSERUU#; 3000 N PURE1 !
+ 
+ PARAM G(TETRAGONAL_U,U) 298.15 -5156.136+106.976316*T-22.841*T*LN(T)
+    -10.84475E-3*T**2+0.027889E-6*T**3+81944*T**(-1);  941.50 Y
+     -14327.309+244.16802*T-42.9278*T*LN(T);  3000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ V
+$ -------------------------------------
+$  Stable (allotropic): BCC_A2 --> LIQUID
+$  Metastable:          FCC_A1, HCP_A3, CBCC_A12, CUB_A13
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,V)    298.15 
+$   +GHSERVV#+20764.117-9.455552*T-5.19136E-22*T**7;  2183 Y
+$   -19617.51+311.055983*T-47.43*T*LN(T);  4000 N PURE3 !
+ PARAM G(LIQUID,V)    298.15 +GLIQVV#;  4000 N PURE3 !
+ 
+$PARAM G(FCC_A1,V:VA) 298.15 +GHSERVV#+7500+1.7*T; 4000 N PURE3 !
+ PARAM G(FCC_A1,V:VA) 298.15 +GFCCVV#;  4000 N PURE3 !
+ 
+ PARAM G(BCC_A2,V:VA) 298.15 +GHSERVV#; 4000 N PURE1 !
+ 
+$PARAM G(HCP_A3,V:VA) 298.15 +GHSERVV#+4000+2.4*T; 4000 N PURE3 !
+ PARAM G(HCP_A3,V:VA) 298.15 +GHCPVV#;  4000 N PURE3 !
+ 
+ PARAM G(CBCC_A12,V:VA) 298.15 +GHSERVV#+9000;  4000 N PURE3 !
+ 
+ PARAM G(CUB_A13,V:VA)  298.15 +GHSERVV#+10000; 4000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ W
+$ -------------------------------------
+$  Stable (allotropic): BCC_A2 --> LIQUID
+$  Metastable:          FCC_A1, HCP_A3
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,W)    298.15 
+$   +GHSERWW#+52160.584-14.10999*T-2.713468E-24*T**7;  3695 Y
+$   -30436.051+375.175*T-54*T*LN(T);    6000 N PURE3 !
+ PARAM G(LIQUID,W)    298.15 +GLIQWW#;  6000 N PURE3 !
+ 
+$PARAM G(FCC_A1,W:VA) 298.15 +GHSERWW#+19300+0.63*T; 6000 N PURE3 !
+ PARAM G(FCC_A1,W:VA) 298.15 +GFCCWW#;  6000 N PURE3 !
+ 
+ PARAM G(BCC_A2,W:VA) 298.15 +GHSERWW#; 6000 N PURE1 !
+ 
+$PARAM G(HCP_A3,W:VA) 298.15 +GHSERWW#+14750; 6000 N PURE3 !
+ PARAM G(HCP_A3,W:VA) 298.15 +GHCPWW#;  6000 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Xe
+$ -------------------------------------
+$ Introduced for version 4.1 of database:
+$     Soure of data: SGTE Substance Database (SSUB4)
+$ -------------------------------------
+$  Stable (allotropic): GAS_Xe
+$  Metastable:          None
+$ ----------------------------------------------------------------------
+$ 
+ PARAM G(GAS,XE)  298.15 +GHSERXE#+RTLNP#; 20000 N PURE4 !
+
+ PARAM G(GAS,XE2) 298.15 +GGASXE2#+RTLNP#; 20000 N PURE4 !
+$ -------------------------------------
+
+$========================================================================
+$ Y
+$ -------------------------------------
+$  Stable (allotropic): HCP_A3 --> BCC_A2 --> LIQUID
+$  Metastable:          FCC_A1
+$ ----------------------------------------------------------------------
+$
+$ Introduced for version 3.0 of the database: 
+$    Data from Huasen Shen, Weijing Zhang, Guoquan Liu, Run Wang 
+$               and Zhenmin Du
+$    Report F-95-03, May 1995, 
+$               University of Science and Technology, Beijing
+$ 
+ PARAM G(LIQUID,Y)    100 +GLIQYY#;  3700 N PURE3 !
+
+$ Introduced for version 4.4 of the database: 
+$   Source of data: Assessment of data for the Cu-Y system  
+$     by Suzana Fries and H L Lukas - private communication
+$ 
+ PARAM G(FCC_A1,Y:VA) 100 +GFCCYY#;  3700 N PURE4 !
+ 
+$ Introduced for version 3.0 of the database: 
+$    Data from Huasen Shen, Weijing Zhang, Guoquan Liu, Run Wang 
+$               and Zhenmin Du
+$    Report F-95-03, May 1995, 
+$               University of Science and Technology, Beijing
+$ 
+ PARAM G(BCC_A2,Y:VA) 100 +GBCCYY#;  3700 N PURE3 !
+
+$ Introduced for version 3.0 of the database: 
+$    Data from Huasen Shen, Weijing Zhang, Guoquan Liu, Run Wang 
+$               and Zhenmin Du
+$    Report F-95-03, May 1995, 
+$               University of Science and Technology, Beijing
+$ 
+ PARAM G(HCP_A3,Y:VA) 100 +GHSERYY#; 3700 N PURE3 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Yb
+$ -------------------------------------
+$  Stable (allotropic): FCC_A1 --> BCC_A2 --> LIQUID
+$  Metastable:          HCP_A3
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,YB)    298.15 +GLIQYB#;  2000 N PURE3 !
+
+ PARAM G(FCC_A1,YB:VA) 298.15 +GHSERYB#; 2000 N PURE1 !
+ 
+ PARAM G(BCC_A2,YB:VA) 298.15 +GBCCYB#;  2000 N PURE3 !
+ 
+$ Introduced for version 5.0 of the database: 
+ PARAM G(HCP_A3,YB:VA) 298.15 +GHCPYB#;  2000 N PURE5 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Zn
+$ -------------------------------------
+$ Corrections for version 5.1 of the database: 
+$  Note: G(HCP_A3,ZN)-G(HCP_ZN,ZN) = +2969.82-1.56968*T; 
+$        accordingly, the most stable structure at 298.15 K for Zn 
+$        is HCP_ZN, whose G0 should be set as the GHSERZN parameter. 
+$        Therefore, the GHSERZN parameter shall be always referred 
+$        in parameters/functions for all other phases (incl. HCP_A3). 
+$                                        /Pingfang Shi, 20100602
+$ -------------------------------------
+$  Stable (allotropic): HCP_ZN --> LIQUID
+$  Metastable:          HCP_A3, FCC_A1, BCC_A2, DIAMOND_A4, BCT_A5, 
+$                       RHOMBOHEDRAL_A7, HOMBO_A10, TETRAGONAL_A6, 
+$                       CBCC_A12, CUB_A13
+$ ----------------------------------------------------------------------
+$
+$PARAM G(LIQUID,ZN) 298.15 
+$   +GHSERZN#+7157.213-10.29299*T-3.58958E-19*T**7;  692.68 Y
+$   -3620.391+161.608594*T-31.38*T*LN(T);  1700 N PURE3 !
+ PARAM G(LIQUID,ZN)    298.15 +GLIQZN#;  1700 N PURE3 !
+ 
+$PARAM G(FCC_A1,ZN:VA) 298.15 +GHSERZN#+2969.82-1.56968*T; 1700 N PURE3 !
+ PARAM G(FCC_A1,ZN:VA) 298.15 +GFCCZN#;  1700 N PURE3 !
+ 
+$PARAM G(BCC_A2,ZN:VA) 298.15 +GHSERZN#+2886.96-2.5104*T; 1700 N PURE3 !
+ PARAM G(BCC_A2,ZN:VA) 298.15 +GBCCZN#;  1700 N PURE3 !
+
+ PARAM G(HCP_A3,ZN:VA) 298.15 +GHCPZN#;  1700 N PURE3 !
+ 
+ PARAM G(HCP_ZN,ZN:VA) 298.15 +GHSERZN#; 1700 N PURE4 !
+
+$ Data from COST507 database
+ PARAM G(DIAMOND_A4,ZN) 298.15 +GHSERZN#+30*T; 1700 N PURE3 !
+
+$ Data from COST507 database
+ PARAM G(BCT_A5,ZN)    298.15 +GHSERZN#+2886.96-2.5104*T; 1700 N PURE3 !
+ 
+$ Introduced for version 4.4 of the database: 
+$   Source of data:  
+$     Unpublished work by Alan Dinsdale
+$ 
+ PARAM G(RHOMBOHEDRAL_A7,ZN) 298.15 +GHSERZN#+2300+11.5*T; 1700 N PURE4 !
+
+$ S.C. Hansen, Calphad 1998, 22, 359-373
+ PARAM G(RHOMBOHEDRAL_A10,ZN) 200 
+    -2128.565+118.177019*T-23.701314*T*LN(T)
+     -1.712034E-3*T**2-1.264963E-6*T**3-358.9488E-21*T**7; 692.677 Y
+    -5620.385+171.608540*T-31.38*T*LN(T);  1700 N PURE3 !
+
+$ Introduced for version 4.4 of the database: 
+$   Source of data:  
+$     B J Lee, CALPHAD 1996, 20(4), 471-480
+$ 
+$PARAM G(TETRAGONAL_A6,ZN) 298.15 
+$   -3101.787+118.470069*T-23.701314*T*LN(T)
+$    -1.712034E-3*T**2-1.264963E-6*T**3; 692.68 Y 
+$   -6886.559+172.34566*T-31.38*T*LN(T)
+$    +470.514E24*T**(-9); 1700 N PURE4 !
+ PARAM G(TETRAGONAL_A6,ZN) 298.15 +GHSERZN#+4184; 1700 N PURE5 !
+
+$ Introduced for version 4.4 of the database: 
+$   Source of data:  
+$     J Miettinen, CALPHAD to be published
+$ 
+ PARAM G(CBCC_A12,ZN:VA) 298.15 +GHSERZN#+2000; 1700 N PURE4 !
+
+$ Introduced for version 4.4 of the database: 
+$   Source of data:  
+$     J Miettinen, CALPHAD to be published
+$ 
+ PARAM G(CUB_A13,ZN:VA)  298.15 +GHSERZN#+2000; 1700 N PURE4 !
+$ -------------------------------------
+ 
+$========================================================================
+$ Zr
+$ -------------------------------------
+$  DATA FROM COST507 DATABASE
+$ -------------------------------------
+$  Stable (allotropic): HCP_A3 --> BCC_A2 --> LIQUID
+$  Metastable:          FCC_A1, RHOMBOHEDRAL_A7, TETRAGONAL_A6, 
+$                       CBCC_A12, CUB_A13, OMEGA 
+$ ----------------------------------------------------------------------
+$
+ PARAM G(LIQUID,ZR)    298.15 +GLIQZR#;  6000 N PURE3 !
+ 
+ PARAM G(FCC_A1,ZR:VA) 298.15 +GFCCZR#;  6000 N PURE3 !
+
+ PARAM G(BCC_A2,ZR:VA) 298.15 +GBCCZR#;  6000 N PURE3 !
+ 
+ PARAM G(HCP_A3,ZR:VA) 130.00 +GHSERZR#; 6000 N PURE1 !
+ 
+$ Introduced for version 4.4 of the database: 
+$   Source of data:  
+$     
+ PARAM G(ORTHORHOMBIC_A20,ZR) 298.15 
+     +4474.461+124.9457*T-25.607406*T*LN(T)
+    -3.40084E-4*T**2-9.729E-9*T**3+25233*T**(-1)-7.6143E-11*T**4; 2128 Y
+     -25705.955+264.284163*T-42.144*T*LN(T)
+    +1276.058E29*T**(-9);  6000 N PURE4 !
+ 
+$ Introduced for version 4.4 of the database: 
+$   Source of data:  
+$     
+ PARAM G(TETRAGONAL_U,ZR) 298.15 
+     +4474.461+124.9457*T-25.607406*T*LN(T)
+    -3.40084E-4*T**2-9.729E-9*T**3+25233*T**(-1)-7.6143E-11*T**4; 2128 Y
+     -25705.955+264.284163*T-42.144*T*LN(T)
+    +1276.058E29*T**(-9); 6000 N PURE4 !
+ 
+$ Introduced for version 4.4 of the database: 
+$   Source of data:  
+$     
+ PARAM G(CBCC_A12,ZR:VA) 298.15 +GHSERZR#+4602.2; 6000 N PURE4 !
+
+$ Introduced for version 4.4 of the database: 
+$   Source of data:  
+$     
+ PARAM G(CUB_A13,ZR:VA)  298.15 +GHSERZR#+7531.2; 6000 N PURE4 !
+
+$PARAM G(OMEGA,ZR) 130.00 -8878.082+144.432234*T-26.8556*T*LN(T)
+$     -0.002799446*T**2+38376*T**(-1);  2128 Y
+$   +GHSERZR#-3414.603+2.566675*T
+$    +8.517346E+31*T**(-9); 6000 N PURE3 !
+ PARAM G(OMEGA,ZR) 298.15 -8878.082+144.432234*T-26.8556*T*LN(T)
+    -2.799446E-3*T**2+38376*T**(-1); 2128 Y
+     -29500.524+265.290858*T-42.144*T*LN(T)
+    +717.445E29*T**(-9);  6000 N PURE3 !
+$ -------------------------------------
+
+
+$************************************************************************
+$                                               END OF PURE5param.TDB !!!
+$************************************************************************
+
